@@ -11,7 +11,10 @@ const PopUp = (props) => {
         if(modalRef.current === e.target){
             props.setIsOpen(false)
         }
+        document.body.style.overflow = "unset"
     }
+
+    { props.isOpen ? document.body.style.overflow = "hidden" : document.body.style.overflow = "unset" }
 
     // const animation = useSpring({
     //     config: {

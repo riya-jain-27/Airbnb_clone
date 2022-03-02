@@ -1,3 +1,5 @@
+import Radium, { StyleRoot} from "radium";
+
 const styles = {
     root:{
         backgroundColor: "#F7F7F7",
@@ -6,7 +8,12 @@ const styles = {
         display: "flex",
         justifyContent: "space-between",
         // bottom: 0,
-        // position: "absolute",     
+        // position: "absolute",
+        
+        // "@media (min-width: 744px)": {
+        //     paddingLeft: 45,
+        //     paddingRight: 45,
+        // }
     },
     content:{
         paddingTop: 48, 
@@ -96,7 +103,7 @@ const styles = {
         } 
     },
 
-    '@media (min-width: 744px)':{
+    '@media (min-width: 744px)' :{
         root:{
             paddingLeft: 45,
             paddingRight: 45,
