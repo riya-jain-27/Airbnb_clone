@@ -1,0 +1,132 @@
+.carouselItem_container {
+  flex: 1 0 80%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  /* height: ; */
+}
+.carouselItem_top {
+  max-width: 320px;
+  width: 100%;
+  filter: drop-shadow(0px 8px 6px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  position: relative;
+}
+.carouselItem_hostphoto {
+  border-radius: 4px;
+  padding-top: 100%;
+  position: relative;
+  flex: 1;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.carouselItem_hostphotogrid {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carouselItem_image {
+  object-fit: cover;
+  object-position: center bottom;
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+.carouselItem_background {
+  background-image: none;
+  background-size: cover;
+  border-radius: 4px;
+  display: none;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  inset: 0;
+  position: absolute;
+  /* height: 100%; */
+}
+.carouselItem_button{
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  inset: 0px;
+}
+.carouselItem_bottom {
+  opacity: 1;
+  pointer-events: none;
+  will-change: opacity;
+  transition: visibility 0.33s ease-in-out;
+}
+#carouselItem_text {
+  color: #222222;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 36px;
+  margin-bottom: 24px;
+  padding-right: 24px;
+  font-weight: 350;
+}
+.carouselItem_signature {
+  display: inline-block;
+  vertical-align: bottom;
+  height: 32px;
+  width: auto;
+  min-height: 1px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.carouselItem_sign_img {
+  object-fit: contain;
+  object-position: left center;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  position: static;
+}
+#carouselItem_location {
+  margin-top: 12px;
+  color: #717171;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+
+@media (min-width: 744px) {
+  .carouselItem_container {
+    flex: 1 0 60%;
+    scroll-snap-align: start;
+  }
+  .carouselItem_top{
+    max-width: none;
+  }
+  .carouselItem_bottom{
+    padding-right: 24px;
+  }
+  #carouselItem_text {
+    color: #222222;
+    font-size: 26px;
+    line-height: 30px;
+    margin-top: 48px;
+    margin-bottom: 34px;
+  }
+  #carouselItem_location {
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 1128px) {
+  .carouselItem_container {
+    flex: 1 0 calc(32.75% + 1px);
+    scroll-snap-align: center;
+  }
+}

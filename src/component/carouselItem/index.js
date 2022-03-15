@@ -1,31 +1,32 @@
 import React from "react";
 import { Grid,  Typography } from "@mui/material";
-import styles from "./styles";
+import "./styles.css";
 
 
 const CarouselItem = (props) => {
     return(
-        <Grid style={styles.container}>
-            <Grid style={{paddingRight: 18}}>
-                <button style={styles.top}>
-                    <Grid style={styles.hostphoto}>
-                        <Grid style={styles.hostphotogrid}>
-                            <img importance="low" loading="lazy" src={props.host_img} style={styles.image} />
-                            <Grid style={styles.background}></Grid>
-                        </Grid>
-                    </Grid>
-                </button>
-                <Grid style={styles.bottom}>
-                    <Typography style={styles.text}>{props.content}</Typography>
-                    <Grid>
-                        <Grid style={styles.signature}>
-                            <img importance="low" loading="lazy" src={props.sign_img} style={styles.sign_img} />
-                        </Grid>
-                    </Grid>
-                    <Typography style={styles.location}>Host in {props.location}</Typography>
-                </Grid>
-            </Grid>
-        </Grid>
+        <div className="carouselItem_container" >
+            <div style={{paddingRight: 18}}>
+                <div className="carouselItem_top">
+                    <div className="carouselItem_hostphoto">
+                        <div className="carouselItem_hostphotogrid">
+                            <img importance="low" loading="lazy" src={props.host_img} className="carouselItem_image" />
+                            <div className="carouselItem_background"></div>
+                        </div>
+                    </div>
+                    <button className="carouselItem_button"></button>
+                </div>
+                <div className="carouselItem_bottom">
+                    <Typography id="carouselItem_text">{props.content}</Typography>
+                    <div>
+                        <div className="carouselItem_signature">
+                            <img importance="low" loading="lazy" src={props.sign_img} className="carouselItem_sign_img" />
+                        </div>
+                    </div>
+                    <Typography id="carouselItem_location">Host in {props.location}</Typography>
+                </div>
+            </div>
+        </div>
     )
 }
 

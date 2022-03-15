@@ -1,7 +1,7 @@
 import React, {useRef} from "react";
 import { Grid, IconButton, Typography } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import styles from './style';
+import './style.css';
 import { useSpring, animated } from "@react-spring/core";
 
 const PopUp = (props) => {
@@ -26,21 +26,21 @@ const PopUp = (props) => {
 
     return(
         <Grid>
-            <div style={styles.banner}></div>
-            <Grid style={styles.box} ref={modalRef} onClick={closeModal} >
-                <div style={styles.div}></div>
-                {/* <animated.div style={animation}> */}
-                <Grid style={styles.section}>
-                    <Grid style={styles.close}>
-                        <IconButton onClick={props.handleClose} aria-label="close" style={styles.closeIcon}><CloseIcon /></IconButton>
-                    </Grid>
-                    <Grid style={styles.textSection}>
-                        <Grid style={styles.content}>
-                            <Grid style={styles.text}>
-                                <Typography style={styles.heading}>How we estimate your earning potential</Typography>
-                                <Grid style={styles.para}>
+            <div className="popup_banner"></div>
+            <div className="popup_box" ref={modalRef} onClick={closeModal} >
+                <div className="popup_div"></div>
+                {/* <animated.div className="popup_on}> */}
+                <div className="popup_section">
+                    <div className="popup_close">
+                        <IconButton onClick={props.handleClose} aria-label="close" id="popup_closeIcon"><CloseIcon /></IconButton>
+                    </div>
+                    <div className="popup_textSection">
+                        <div className="popup_content">
+                            <div className="popup_text">
+                                <Typography id="popup_heading">How we estimate your earning potential</Typography>
+                                <div className="popup_para">
                                     <p>We make a few simple assumptions and calculations to determine your earnings:</p>
-                                    <ul style={styles.list}>
+                                    <ul className="popup_list">
                                         <li>If you have an entire place, we assume you can host four guests. If you’re listing a private room, we count that as two guests, and for a shared room, just one guest. You can change your selections in the drop-down menu at any time.</li>
                                         <br />
                                         <li>We take the median nightly price (before expenses, fees and taxes) based on booking data in your area from the last 12 months.</li>
@@ -50,16 +50,16 @@ const PopUp = (props) => {
                                     Keep in mind that these are just estimates. How much you actually earn depends on a number of other factors such as your availability, price, acceptance and cancellation rates, any legal restrictions and demand in your area.
                                     <br />
                                     <br />
-                                    Also, your ability to host may depend on the local laws in your area. <span style={styles.learnMore}>Learn more</span>.
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
+                                    Also, your ability to host may depend on the local laws in your area. <span className="popup_learnMore">Learn more</span>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {/* </animated.div> */}
-                <div style={styles.div}></div>
-            </Grid>
-            <div style={styles.div}></div>
+                <div className="popup_div"></div>
+            </div>
+            <div className="popup_div"></div>
         </Grid>
     )
 }

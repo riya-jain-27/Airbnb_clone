@@ -11,18 +11,26 @@ import AskASuperhost from './container/askASuperhost';
 import AirCover from './container/aircover';
 import BecomeAHost from './container/becomeAHost';
 import HelpCentre from './container/helpCentre';
+import LogIn from './container/auth/loginScreen'
+import SignUp from './container/auth/signUp'
+import ForgotPassword from './container/auth/forgotPassword'
+import ImFlexible from './container/imFlexible'
 
 function App() {
   return(
     <BrowserRouter>
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/hostYourHome" element={<HostHome />} />
           <Route path="/askasuperhost" element={<AskASuperhost />} />
           <Route path="/aircover" element={<AirCover />} />
           <Route path="/becomeHost" element={<BecomeAHost />} />
           <Route path="/help" element={<HelpCentre />} />
+          <Route path="/" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/forgotPassword" element={<ForgotPassword />} />
+          <Route path="/im-flexible" element={<ImFlexible />} />
         </Routes>
       </div>
     </BrowserRouter>

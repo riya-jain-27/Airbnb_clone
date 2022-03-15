@@ -2,22 +2,24 @@
 //media query
 //repetivtive data in content
 //animations
+//sign out option in header list
+
+//////login
+//google authentication
 
 //////home
 //header
 //im flexible color
 //row and column gap in ""
+//footer links
 
 
 //////host a home
-//header
+//opacity of header
 //change info on video
-//scroll on carousel
 //opacity of info in carousel cards
-//x mandatory in scroll snap
 //animation on popup
 //dropdown close on select option
-//hover on dropdown
 
 
 //////ask a superhost

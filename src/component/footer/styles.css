@@ -1,0 +1,224 @@
+.footer_container {
+  background-color: rgb(247, 247, 247) !important;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#footer_content{
+    padding: 32px 0px;
+    width: 100%;
+}
+#footer_column:not(:last-child) {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+#footer_title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+}
+#footer_links{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+#footer_element {
+  margin-top: 12px;
+}
+#footer_element:hover{
+    text-decoration: underline;
+}
+#footer_item{
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 350;
+    cursor: pointer;
+}
+
+#footer_banner {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-top: 1px solid rgb(221, 221, 221);
+  width: 100%;
+}
+#footer_bottom-middle{
+    display: none;
+}
+#footer_bottom-max{
+    display: none;
+}
+#footer_right {
+  display: flex;
+}
+#footer_leftText {
+  font-size: 14px;
+  line-height: 18px;
+  display: inline-block;
+  font-weight: 350;
+  cursor: pointer;
+}
+#footer_listText{
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 350;
+}
+#footer_listText:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+#footer_break {
+  width: 19px;
+  text-align: center;
+  display: inline-block;
+}
+#footer_options {
+  display: flex;
+}
+#footer_english {
+  margin-right: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+  display: flex;
+}
+#footer_inr {
+  margin-right: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#footer_icons {
+  margin-left: 32px;
+}
+#footer_media {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  list-style: none;
+}
+#footer_facebook {
+  margin-right: 24px;
+}
+#footer_twitter {
+  margin-right: 24px;
+}
+#footer_icon {
+  text-decoration: none;
+  color: black;
+}
+
+
+@media (max-width: 744px){
+    #footer_right{
+        margin-bottom: 16px;
+    }
+    #footer_icons{
+        display: none;
+    }
+}
+
+@media (min-width: 744px){
+    .footer_container{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    #footer_left{
+        text-align: center;
+    }
+    #footer_leftParent{
+        display: flex; 
+        justify-content: "center";
+    }
+    #footer_right{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+    #footer_bottom-middle{
+        display: initial;
+    }
+    #footer_bottom-min{
+        display: none;
+    }
+    #footer_content{
+        display: flex;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        flex-direction: column;
+    }
+    #footer_links{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+    #footer_element{
+        flex-basis: 33.3333%;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+@media (min-width: 1128px){
+    .footer_container{
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    #footer_bottom-max {
+        display: flex;
+        justify-content: space-between;
+    }
+    #footer_bottom-middle{
+        display: none;
+    }
+    #footer_left{
+        text-align: left;
+        overflow: hidden;
+        padding-right: 2px;
+        display: flex;
+    }
+    #footer_leftText{
+        margin-right: 19px;
+    }
+    #footer_content{
+        padding-top: 48px;
+        padding-bottom: 48px;
+        flex-direction: row;
+        margin-left: -12px;
+        margin-right: -12px;
+        width: 100%;
+    }
+    #footer_column {
+        padding-left: 12px;
+        padding-right: 12px;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 0%;
+        flex: 1 0 0%;
+    }
+    #footer_column:not(:last-child) {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        border-bottom: 0px;
+    }
+    #footer_links{
+        display: block;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    #footer_element{
+        margin-top: 16px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
