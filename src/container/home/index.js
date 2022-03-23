@@ -23,12 +23,12 @@ function Home() {
                                     <div className="home_section1_pictureContainer">
                                         <div className="home_section1_pictureStyle">
                                             <picture>
-                                                <source srcset="https://a0.muscache.com/im/pictures/23b047cd-19c9-42c0-a83b-2f4f6f25717b.jpg?im_q=highq&amp;im_w=1920 1x, https://a0.muscache.com/im/pictures/23b047cd-19c9-42c0-a83b-2f4f6f25717b.jpg?im_q=highq&amp;im_w=2560 2x" media="(min-width: 2080px)" />
-                                                <source srcset="https://a0.muscache.com/im/pictures/23b047cd-19c9-42c0-a83b-2f4f6f25717b.jpg?im_w=1200 1x, https://a0.muscache.com/im/pictures/23b047cd-19c9-42c0-a83b-2f4f6f25717b.jpg?im_w=2560 2x" media="(min-width: 1440px)" />
-                                                <source srcset="https://a0.muscache.com/im/pictures/644d9a47-e28c-4857-ad7b-2dc191cb3507.jpg?im_w=960 1x, https://a0.muscache.com/im/pictures/644d9a47-e28c-4857-ad7b-2dc191cb3507.jpg?im_w=1920 2x" media="(min-width: 1128px)" />
-                                                <source srcset="https://a0.muscache.com/im/pictures/6dbfc87a-22a4-4d4a-b352-99aa93a98e78.jpg?im_w=720 1x, https://a0.muscache.com/im/pictures/6dbfc87a-22a4-4d4a-b352-99aa93a98e78.jpg?im_w=1440 2x" media="(min-width: 744px)" />
-                                                <source srcset="https://a0.muscache.com/im/pictures/ac6ab9ee-7b70-42e9-a57d-a967ab6e2ef1.jpg?im_w=320 1x, https://a0.muscache.com/im/pictures/ac6ab9ee-7b70-42e9-a57d-a967ab6e2ef1.jpg?im_w=720 2x" media="(min-width: 375px)" />
-                                                <source srcset="https://a0.muscache.com/im/pictures/52036958-54a4-4aa5-acb2-ebb123617253.jpg?im_w=320 1x, https://a0.muscache.com/im/pictures/52036958-54a4-4aa5-acb2-ebb123617253.jpg?im_w=720 2x" />
+                                                <source srcSet="https://a0.muscache.com/im/pictures/23b047cd-19c9-42c0-a83b-2f4f6f25717b.jpg?im_q=highq&amp;im_w=1920 1x, https://a0.muscache.com/im/pictures/23b047cd-19c9-42c0-a83b-2f4f6f25717b.jpg?im_q=highq&amp;im_w=2560 2x" media="(min-width: 2080px)" />
+                                                <source srcSet="https://a0.muscache.com/im/pictures/23b047cd-19c9-42c0-a83b-2f4f6f25717b.jpg?im_w=1200 1x, https://a0.muscache.com/im/pictures/23b047cd-19c9-42c0-a83b-2f4f6f25717b.jpg?im_w=2560 2x" media="(min-width: 1440px)" />
+                                                <source srcSet="https://a0.muscache.com/im/pictures/644d9a47-e28c-4857-ad7b-2dc191cb3507.jpg?im_w=960 1x, https://a0.muscache.com/im/pictures/644d9a47-e28c-4857-ad7b-2dc191cb3507.jpg?im_w=1920 2x" media="(min-width: 1128px)" />
+                                                <source srcSet="https://a0.muscache.com/im/pictures/6dbfc87a-22a4-4d4a-b352-99aa93a98e78.jpg?im_w=720 1x, https://a0.muscache.com/im/pictures/6dbfc87a-22a4-4d4a-b352-99aa93a98e78.jpg?im_w=1440 2x" media="(min-width: 744px)" />
+                                                <source srcSet="https://a0.muscache.com/im/pictures/ac6ab9ee-7b70-42e9-a57d-a967ab6e2ef1.jpg?im_w=320 1x, https://a0.muscache.com/im/pictures/ac6ab9ee-7b70-42e9-a57d-a967ab6e2ef1.jpg?im_w=720 2x" media="(min-width: 375px)" />
+                                                <source srcSet="https://a0.muscache.com/im/pictures/52036958-54a4-4aa5-acb2-ebb123617253.jpg?im_w=320 1x, https://a0.muscache.com/im/pictures/52036958-54a4-4aa5-acb2-ebb123617253.jpg?im_w=720 2x" />
                                                 <img className="home_section1_image" src="https://a0.muscache.com/im/pictures/6dbfc87a-22a4-4d4a-b352-99aa93a98e78.jpg?im_w=1440" />
                                             </picture>                                                
                                         </div>
@@ -95,12 +95,12 @@ function Home() {
                             <div className="home_section3_image_container">
                                 <div className="home_section3_image_style">
                                     <picture>
-                                        <source srcset="https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=960 1x, https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=1920 2x" media="(min-width: 2080px)" />
-                                        <source srcset="https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=720 1x, https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=1200 2x" media="(min-width: 1440px)" />
-                                        <source srcset="https://a0.muscache.com/im/pictures/0dcae177-2f65-4a15-b9e8-75d8c9b3cbe8.jpg?im_w=480 1x, https://a0.muscache.com/im/pictures/0dcae177-2f65-4a15-b9e8-75d8c9b3cbe8.jpg?im_w=960 2x" media="(min-width: 1128px)" />
-                                        <source srcset="https://a0.muscache.com/im/pictures/35612883-8e4c-440a-a768-ca7f268bd294.jpg?im_w=320 1x, https://a0.muscache.com/im/pictures/35612883-8e4c-440a-a768-ca7f268bd294.jpg?im_w=720 2x" media="(min-width: 744px)" />
-                                        <source srcset="https://a0.muscache.com/im/pictures/8f0847aa-9c7e-4371-990c-84987b61f7f7.jpg?im_w=320 1x, https://a0.muscache.com/im/pictures/8f0847aa-9c7e-4371-990c-84987b61f7f7.jpg?im_w=720 2x" media="(min-width: 375px)" />
-                                        <source srcset="https://a0.muscache.com/im/pictures/0947f1e4-a6a9-4514-8b78-9e47ea797631.jpg?im_w=320 1x, https://a0.muscache.com/im/pictures/0947f1e4-a6a9-4514-8b78-9e47ea797631.jpg?im_w=720 2x" />
+                                        <source srcSet="https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=960 1x, https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=1920 2x" media="(min-width: 2080px)" />
+                                        <source srcSet="https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=720 1x, https://a0.muscache.com/im/pictures/b2f98185-f3bf-40db-ba8d-da0bceeccc65.jpg?im_w=1200 2x" media="(min-width: 1440px)" />
+                                        <source srcSet="https://a0.muscache.com/im/pictures/0dcae177-2f65-4a15-b9e8-75d8c9b3cbe8.jpg?im_w=480 1x, https://a0.muscache.com/im/pictures/0dcae177-2f65-4a15-b9e8-75d8c9b3cbe8.jpg?im_w=960 2x" media="(min-width: 1128px)" />
+                                        <source srcSet="https://a0.muscache.com/im/pictures/35612883-8e4c-440a-a768-ca7f268bd294.jpg?im_w=320 1x, https://a0.muscache.com/im/pictures/35612883-8e4c-440a-a768-ca7f268bd294.jpg?im_w=720 2x" media="(min-width: 744px)" />
+                                        <source srcSet="https://a0.muscache.com/im/pictures/8f0847aa-9c7e-4371-990c-84987b61f7f7.jpg?im_w=320 1x, https://a0.muscache.com/im/pictures/8f0847aa-9c7e-4371-990c-84987b61f7f7.jpg?im_w=720 2x" media="(min-width: 375px)" />
+                                        <source srcSet="https://a0.muscache.com/im/pictures/0947f1e4-a6a9-4514-8b78-9e47ea797631.jpg?im_w=320 1x, https://a0.muscache.com/im/pictures/0947f1e4-a6a9-4514-8b78-9e47ea797631.jpg?im_w=720 2x" />
                                         <img className="home_section3_image" src="https://a0.muscache.com/im/pictures/0dcae177-2f65-4a15-b9e8-75d8c9b3cbe8.jpg?im_w=960"></img>
                                     </picture>
                                 </div>

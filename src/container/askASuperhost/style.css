@@ -1,0 +1,770 @@
+.superhost_header_container {
+  padding: 24px;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+  position: fixed;
+  background-color: #ffffff;
+}
+.superhost_header_logo_container1 {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.superhost_header_logo_container2 {
+  appearance: none;
+  display: inline-block;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  margin: 0;
+  position: relative;
+  padding: 0;
+  color: #222;
+}
+.superhost_header_logo {
+  display: block;
+  height: 32px;
+  width: 32px;
+  fill: currentcolor;
+}
+.superhost_header_button_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 4;
+  min-width: 0px;
+  visibility: visible;
+}
+#superhost_header_button {
+  display: inline-block;
+  margin-left: 8px;
+  margin: 0;
+  position: relative;
+  width: auto;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  border-radius: 8px;
+  outline: none;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background: #5f002a;
+  color: #ffffff;
+  text-transform: none;
+}
+
+#superhost_container {
+  padding-top: 56px;
+}
+
+.superhost_section1_container1 {
+  top: 48px;
+  transform: translateY(0px);
+}
+.superhost_section1_container2 {
+  padding: 48px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.superhost_section1_text_container {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+}
+.superhost_section1_text {
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 600;
+  color: #5f002a;
+}
+.superhost_section1_button_container {
+  margin-top: 64px;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+#superhost_section1_button {
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  width: auto;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  border-radius: 8px;
+  outline: none;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 32px;
+  padding-right: 32px;
+  background: #5f002a;
+  color: white;
+  text-transform: none;
+}
+
+#superhost_sections {
+  position: relative;
+  background-color: #ffffff;
+  z-index: 3;
+}
+.superhost_section2_container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+.superhost_section2_leftSection {
+  background: #5f002a;
+  color: #ffffff;
+  position: relative;
+  height: 100%;
+  z-index: 1;
+  min-height: 48%;
+  max-height: 48%;
+}
+.superhost_section2_leftSection_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 310px;
+}
+.superhost_section2_leftSection_content {
+  padding: 24px 24px 56px 24px;
+  font-size: 32px;
+  line-height: 36px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+#superhost_section2_heading {
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.superhost_section2_text {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  font-weight: 600;
+}
+.superhost_section2_rightSection {
+  height: 310px;
+  position: relative;
+}
+.superhost_section2_rightSection_container {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  will-change: transform;
+}
+.superhost_section2_video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.superhost_section2_gradient {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 30vh;
+  background: linear-gradient(
+    360deg,
+    rgba(0, 0, 0, 0.54) 20.86%,
+    rgba(0, 0, 0, 0) 90.37%
+  );
+}
+.superhost_section2_rightSection_content {
+  left: 24px;
+  bottom: 24px;
+  position: absolute;
+}
+.superhost_section2_text_container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+.superhost_section2_name_year {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: white;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+.superhost_section2_dot {
+  height: 2px;
+  width: 2px;
+  background-color: white;
+  border-radius: 50%;
+}
+.superhost_section2_button {
+  bottom: 24px;
+  position: absolute;
+  right: 24px;
+}
+#superhost_section2_play_pause {
+  color: #ffffff;
+}
+
+.superhost_section3_container {
+  padding: 0px 24px 16px;
+}
+.superhost_section3_content {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+.superhost_section3_text {
+  border-bottom: 1px solid #dddddd;
+}
+.superhost_section3_heading {
+  font-size: 18px;
+  line-height: 24px;
+  display: block;
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+.superhost_section3_body {
+  margin-bottom: 32px;
+  font-size: 16px;
+  line-height: 20px;
+  display: block;
+}
+
+.superhost_section4_heading_container {
+  padding: 0px 24px 48px;
+}
+.superhost_section4_heading {
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #222;
+}
+.superhost_section4_section {
+  margin-bottom: 8px;
+  position: relative;
+  height: 620px;
+}
+.superhost_section4_section3 {
+  margin-bottom: -8px;
+  position: relative;
+  height: 620px;
+}
+.superhost_section4_bg {
+  display: inline-block;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  min-height: 1px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.superhost_section4_image {
+  object-fit: cover;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  position: static;
+}
+.superhost_section4_content {
+  position: sticky;
+  z-index: 2;
+  display: block;
+  opacity: 1;
+  left: 24px;
+  bottom: 24px;
+  margin: 32px 24px;
+}
+.superhost_section4_card_content {
+  padding: 32px 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  max-width: 620px;
+  box-shadow: 0px 0px 0px 1px rgb(0 0 0 / 4%), 0px 6px 20px rgb(0 0 0 / 20%);
+}
+.superhost_section4_step {
+  font-size: 16px;
+  font-weight: 650;
+  color: #222;
+  line-height: 20px;
+}
+.superhost_section4_stepDesc {
+  font-size: 22px;
+  font-weight: 500;
+  color: #222;
+  line-height: 26px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+.superhost_section4_border {
+  border-bottom: 1px solid #dddddd;
+}
+.superhost_section4_body {
+  display: flex;
+  flex-direction: row;
+  margin-top: 24px;
+}
+.superhost_section4_profile_container {
+  margin-right: 12px;
+}
+.superhost_section4_profile {
+  display: inline-block;
+  vertical-align: bottom;
+  height: 48px;
+  width: 48px;
+  min-height: 1px;
+  border-radius: 24px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.superhost_section4_profileImg {
+  object-fit: cover;
+  vertical-align: bottom;
+  border-radius: 24px;
+  height: 100%;
+  width: 100%;
+  position: static;
+}
+.superhost_section4_info {
+  display: flex;
+  flex-direction: row;
+}
+.superhost_section4_name {
+  display: block;
+  color: #222;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 20px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+.superhost_section4_time {
+  color: #717171;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 2px;
+}
+.superhost_section4_ans {
+  font-size: 14px;
+  line-height: 18px;
+  color: #222222;
+}
+
+.superhost_section5_container1 {
+  display: flex;
+  background: black;
+  color: #ffffff;
+  flex-direction: column;
+  padding-bottom: 120px;
+}
+.superhost_section5_content {
+  padding: 48px 24px;
+}
+.superhost_section5_heading {
+  margin: 0 0 24px 0;
+  font-size: 32px;
+  line-height: 36px;
+}
+.superhost_section5_text {
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0 0 32px 0;
+}
+.superhost_section5_buttons {
+  width: 100%;
+  display: inline-grid;
+  row-gap: 16px;
+  justify-items: baseline;
+}
+#superhost_section5_button1 {
+  position: relative;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 23px;
+  padding-right: 23px;
+  background: #ffffff;
+  color: #222;
+}
+#superhost_section5_button2 {
+  position: relative;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 23px;
+  padding-right: 23px;
+  background: #222;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.superhost_section5_carousel {
+  scroll-padding: 0 24px 0 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+}
+.superhost_section5_carousel::-webkit-scrollbar{
+    width: 0px;
+}
+.superhost_section5_body {
+  padding: 0 24px;
+  display: flex;
+  /* min-width: 100%; */
+  flex-direction: row;
+}
+.superhost_section5_card1 {
+  flex: 1 0 80%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  margin-right: 16px;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+}
+.superhost_section5_card2 {
+  position: relative;
+  border-radius: 0;
+  outline: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.superhost_section5_bg {
+  display: inline-block;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  min-height: 1px;
+  border-radius: 12px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.superhost_section5_image {
+  object-fit: cover;
+  object-position: center top;
+  vertical-align: bottom;
+  border-radius: 12px;
+  height: 100%;
+  width: 100%;
+  position: static;
+}
+.superhost_section5_gradient {
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+.superhost_section5_cardText {
+  font-size: 16px;
+  line-height: 20px;
+  bottom: 32px;
+  position: absolute;
+  left: 24px;
+  pointer-events: none;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: left;
+}
+.superhost_section5_play_container {
+  width: 24px;
+  height: 24px;
+  bottom: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  right: 24px;
+}
+.superhost_section5_play {
+  display: block;
+  height: 13px;
+  width: 13px;
+  fill: #222222;
+}
+.superhost_section5_child{
+    flex: 1 0 24px;
+scroll-snap-align: start;
+scroll-snap-stop: always;
+margin-right: 16px;
+border-radius: 12px;
+position: relative;
+cursor: pointer;
+}
+
+@media (min-width: 744px) {
+  .superhost_header_container {
+    padding: 32px 48px;
+    /* height: 112px !important; */
+  }
+  #superhost_header_button {
+    margin-left: 22px;
+  }
+  #superhost_container {
+    padding-top: 112px;
+  }
+  .superhost_section1_container1 {
+    top: 96px;
+  }
+  .superhost_section1_container2 {
+    min-height: calc(65vh - 56px);
+    padding: 64px 80px 120px;
+  }
+  .superhost_section1_content {
+    max-width: 1760px;
+    margin: auto;
+  }
+  .superhost_section1_text {
+    font-size: 64px;
+    line-height: 72px;
+  }
+  .superhost_section1_button_container {
+    margin-top: 80px;
+    align-items: center;
+    flex-direction: row;
+  }
+  .superhost_section2_container {
+    height: 860px;
+    flex-direction: row;
+    margin-bottom: 120px;
+  }
+  .superhost_section2_leftSection {
+    flex: 50%;
+    border-radius: 0px;
+    min-height: none;
+    max-height: none;
+  }
+  .superhost_section2_leftSection_container {
+    height: 100%;
+    padding: 0px 80px 60px;
+    margin-left: auto;
+    max-width: 1000px;
+  }
+  .superhost_section2_leftSection_content {
+    /* padding: 0; */
+    font-size: 48px;
+    line-height: 56px;
+    background: #5f002a;
+  }
+  #superhost_section2_heading {
+    margin-bottom: 16px;
+    font-size: 22px;
+    line-height: 26px;
+    background: #5f002a;
+  }
+  .superhost_section2_rightSection {
+    height: 100%;
+    flex: 50%;
+    background: #5f002a;
+  }
+  .superhost_section2_rightSection_content {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 40px;
+  }
+  .superhost_section2_button {
+    bottom: 48px;
+    right: 48px;
+  }
+  .superhost_section3_container {
+    padding: 0px 80px 120px;
+  }
+  .superhost_section3_text {
+      border-bottom: none;
+    margin-bottom: 48px;
+    flex: 33%;
+  }
+  .superhost_section3_heading {
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .superhost_section3_body {
+    margin-bottom: 0;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .superhost_section4_container {
+    max-width: 2480px;
+    margin: auto;
+  }
+  .superhost_section4_heading_container {
+    padding: 0px 80px 80px;
+    font-size: 48px;
+    line-height: 56px;
+  }
+  .superhost_section4_heading {
+    font-size: 48px;
+    line-height: 56px;
+    max-width: 1760px;
+    margin: auto;
+  }
+  .superhost_section4_section {
+    height: 860px;
+  }
+  .superhost_section4_section3 {
+    height: 860px;
+  }
+  .superhost_section4_content {
+    left: 80px;
+    bottom: 80px;
+    margin: 80px;
+  }
+  .superhost_section4_card {
+    position: relative;
+    max-width: 1760px;
+    margin: auto;
+  }
+  .superhost_section4_card_content {
+    padding: 40px;
+  }
+  .superhost_section4_step {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .superhost_section4_stepDesc {
+    font-size: 32px;
+    line-height: 36px;
+    margin-bottom: 32px;
+    width: 75%;
+  }
+  .superhost_section4_body {
+    margin-top: 32px;
+  }
+  .superhost_section4_profile_container {
+    margin-right: 24px;
+  }
+  .superhost_section4_ans {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .superhost_section5_container2 {
+    max-width: 2000px;
+    margin: auto;
+  }
+  .superhost_section5_content {
+    padding: 120px 80px 64px;
+  }
+  .superhost_section5_heading {
+    font-size: 64px;
+    line-height: 72px;
+    letter-spacing: -0.02em;
+  }
+  .superhost_section5_text {
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 0 40px 0;
+  }
+  .superhost_section5_buttons {
+    width: auto;
+    grid-template-columns: auto 1fr;
+    column-gap: 16px;
+  }
+  .superhost_section5_carousel {
+    scroll-padding: 0 80px 0 80px;
+  }
+  .superhost_section5_body {
+    padding: 0 80px;
+  }
+  .superhost_section5_card1 {
+    flex: 1 0 40%;
+  }
+  .superhost_section5_cardText {
+    font-size: 18px;
+    line-height: 24px;
+    bottom: 24px;
+    padding-right: 60px;
+  }
+  .superhost_section5_play_container {
+    width: 34px;
+    height: 34px;
+    bottom: 24px;
+  }
+}
+
+@media (min-width: 1128px) {
+  .superhost_section1_container2 {
+    min-height: calc(65vh - 112px);
+    padding: 64px 120px 120px;
+  }
+  .superhost_section2_leftSection_container {
+    padding: 0px 120px 80px;
+  }
+  .superhost_section3_container {
+    padding: 0px 120px 120px;
+  }
+  .superhost_section3_content {
+    flex-direction: row;
+    max-width: 1760px;
+    margin: auto;
+  }
+  .superhost_section3_text {
+    margin-right: 120px;
+  }
+  .superhost_section4_heading_container {
+    padding: 0px 120px 80px;
+  }
+  .superhost_section4_content {
+    left: 120px;
+    bottom: 120px;
+    margin: 80px 120px;
+  }
+  .superhost_section5_content {
+    padding: 120px 120px 64px;
+  }
+  .superhost_section5_carousel {
+    scroll-padding: 0 120px 0 120px;
+  }
+  .superhost_section5_body {
+    padding: 0 120px;
+  }
+  .superhost_section5_card1 {
+    flex: 1 0 25%;
+  }
+  .superhost_section5_cardText {
+    font-size: 26px;
+    line-height: 30px;
+    bottom: 24px;
+  }
+}

@@ -1,16 +1,13 @@
-//style sheet
-//media query
-//repetivtive data in content
-//animations
-//sign out option in header list
+  // "homepage": "https://riya-jain-27.github.io/Airbnb_clone/",
 
-//////login
-//google authentication
+//animations
+//warnings
+//format all files
+
 
 //////home
 //header
 //im flexible color
-//row and column gap in ""
 //footer links
 
 
@@ -25,13 +22,12 @@
 //////ask a superhost
 //opacity in top section
 //button on header
-//navigate last two buttons
+//change info on video
 //comment box scroll
 //end cards popup
 
 
 //////aircover
-//chat app at helpcenter
 //modal at here
 
 
@@ -47,4 +43,3 @@
 
 
 //////host an experience
-

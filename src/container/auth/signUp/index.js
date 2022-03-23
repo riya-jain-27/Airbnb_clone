@@ -3,7 +3,7 @@ import { Grid, Card, TextField, Button, Typography, InputAdornment } from "@mui/
 import styles from "./styles";
 import { Lock, AccountCircle } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 
 const SignUpScreen = (props) => {
     const [username, setUsername] = useState("");
@@ -24,16 +24,16 @@ const SignUpScreen = (props) => {
     }
 
     const handleLogin = () => {
-    //     // alert(password+username);
-    //     axios.post("http://localhost:8005/auth/signUp", {
-    //         username,
-    //         password,
-    //         confirmPassword,
-    //     }).then(function(response){
-    //         console.log(response)
-    //     }).catch(function (error){
-    //         console.log(error)
-    //     })
+        // alert(password+username);
+        axios.post("http://localhost:8005/auth/signUp", {
+            username,
+            password,
+            confirmPassword,
+        }).then(function(response){
+            alert(response.data.message)
+        }).catch(function (error){
+            console.log(error)
+        })
     }
 
     return (

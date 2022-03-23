@@ -2,10 +2,21 @@ import React, { useState } from "react";
 import { Button, Grid } from "@mui/material";
 import "./header.css";
 import { useNavigate } from "react-router-dom";
+import fire from '../../fire';
+import { getAuth, signOut } from "firebase/auth";
 
 const Header = () => {
   const navigate = useNavigate();
   const [isProfileOpen, setProfileOpen] = useState(false);
+
+  const handleLogOut = () => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      navigate("/");
+    }).catch((error) => {
+      alert("failed");
+    });
+  }
 
   return(
     <>
@@ -59,7 +70,7 @@ const Header = () => {
                 <div className="header_nav_options">
                   <button onClick={()=>setProfileOpen(!isProfileOpen)} className="header_profile_button">
                     <div className="header_bar">
-                      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: 16, width: 16, stroke: "currentcolor", strokeWidth: 3, overflow: "visible"}}><g fill="none" fill-rule="nonzero"><path d="m2 16h28"></path><path d="m2 24h28"></path><path d="m2 8h28"></path></g></svg>
+                      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: 16, width: 16, stroke: "currentcolor", strokeWidth: 3, overflow: "visible"}}><g fill="none" fillRule="nonzero"><path d="m2 16h28"></path><path d="m2 24h28"></path><path d="m2 8h28"></path></g></svg>
                     </div>
                     <div className="header_profile">
                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", height: "100%", width: "100%", fill: "currentcolor"}}><path d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"></path></svg>
@@ -68,16 +79,16 @@ const Header = () => {
                   {isProfileOpen ? ( 
                     <div className="header_option_list">
                       <div>
-                        <a href="" className="header_list_link">
+                        <a href="/hostYourHome" className="header_list_link">
                           <div className="header_list_text">Host your home</div>
                         </a>
                         <a href="" className="header_list_link">
                           <div className="header_list_text">Host an experience</div>
                         </a>
-                        <a href="" className="header_list_link">
+                        <a href="/help" className="header_list_link">
                           <div className="header_list_text">Help</div>
                         </a>
-                        <a href="" className="header_list_link">
+                        <a onClick={handleLogOut} className="header_list_link">
                           <div className="header_list_text">Log out</div>
                         </a>
                       </div>
