@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import { Grid, Card, TextField, Button, Typography, InputAdornment } from "@mui/material";
-import styles from "./styles";
 import { Lock, AccountCircle } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../styles.css";
 
 const SignUpScreen = (props) => {
     const [username, setUsername] = useState("");
@@ -39,21 +39,21 @@ const SignUpScreen = (props) => {
     return (
       <>
         <Grid container style={styles.root}>
-          <Grid item md={8} style={styles.leftSection}></Grid>
-          <Grid item md={4}>
-            <Card style={{ height: "100%", borderRadius: 0, color: "white", backgroundColor: "black" }}>
+          <Grid item sm={12} md={8} style={styles.leftSection}></Grid>
+          <Grid item xs={12} sm={12} md={4}>
+            <Card id="auth_rightSection">
               <Grid
                 container
                 justify="center"
                 alignItems="center"
-                style={{ padding: 15, height: "100%" }}
+                id="auth_rightSection_container"
               >
-                <Grid item md={12} style={{ textAlign: "center" }}>
+                <Grid item md={12} id="auth_text">
                   <Typography variant="h4">Welcome to Airbnb</Typography>
                   <Typography variant="h6">Enter your details below</Typography>
                 </Grid>
                 <Grid container>
-                  <Grid item md={12} style={{ margin: 20 }}>
+                  <Grid item md={12} id="auth_input_container">
                     <TextField fullWidth sx={{ input: { color: 'white' }, label: { color: 'white' }, borderBottom: "1px solid white"}}
                       label="Username"
                       type={"string"}
@@ -61,14 +61,14 @@ const SignUpScreen = (props) => {
                       variant="standard"
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start" style={{color: "white"}}>
+                          <InputAdornment position="start" id="auth_input_icon">
                             <AccountCircle />
                           </InputAdornment>
                         ),
                       }}
                     />
                   </Grid>
-                  <Grid item md={12} style={{ margin: 20 }}>
+                  <Grid item md={12} id="auth_input_container">
                     <TextField fullWidth sx={{ input: { color: 'white' }, label: { color: 'white' }, borderBottom: "1px solid white"}}
                       label="Password"
                       type={"password"}
@@ -76,14 +76,14 @@ const SignUpScreen = (props) => {
                       variant="standard"
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start" style={{color: "white"}}>
+                          <InputAdornment position="start" id="auth_input_icon">
                             <Lock />
                           </InputAdornment>
                         ),
                       }}
                     />
                   </Grid>
-                  <Grid item md={12} style={{ margin: 20 }}>
+                  <Grid item md={12} id="auth_input_container">
                   <TextField fullWidth sx={{ input: { color: 'white' }, label: { color: 'white' }, borderBottom: "1px solid white"}}
                       label="Confirm Password"
                       type={"password"}
@@ -91,7 +91,7 @@ const SignUpScreen = (props) => {
                       variant="standard"
                       InputProps={{
                         startAdornment: (
-                          <InputAdornment position="start" style={{color: "white"}}>
+                          <InputAdornment position="start" id="auth_input_icon">
                             <Lock />
                           </InputAdornment>
                         ),
@@ -99,21 +99,21 @@ const SignUpScreen = (props) => {
                     />
                   </Grid>
                   <Button
-                    style={{ width: "100%",background: "linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%)" }}
+                    id="auth_button"                    
                     variant="contained"
                     onClick={handleLogin}
                   >
                     SIGN UP
                   </Button>
                 </Grid>
-                <Grid item md={12} style={{ textAlign: "center" }}>
+                <Grid item md={12} id="auth_bottomText">
                   <Typography>
                     Already a member? {" "}
                     <span
                       onClick={() => {
                         navigate("/");
                       }}
-                      style={{ color: "lightblue", cursor: "pointer", textDecoration: "underline" }}
+                      id="auth_login_signUp"
                     >
                       Login
                     </span>
@@ -125,6 +125,18 @@ const SignUpScreen = (props) => {
         </Grid>
       </>
     );
+}
+
+const styles ={
+  root: {
+      height: "100vh",
+  },
+  leftSection: {
+      backgroundImage: `url(https://www.strategyzer.com/hubfs/Business_Model_Examples-airBnB.jpg)`,
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+  }
 }
 
 export default SignUpScreen;

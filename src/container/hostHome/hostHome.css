@@ -272,6 +272,8 @@
   display: none;
   flex-direction: column;
 }
+.hostHome_section2_carouselItem{
+}
 .hostHome_section2_controls {
   right: 40%;
   position: absolute;

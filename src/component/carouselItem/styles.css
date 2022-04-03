@@ -65,6 +65,7 @@
   opacity: 1;
   pointer-events: none;
   will-change: opacity;
+  -webkit-transition: visibility .33s ease-in-out;
   transition: visibility 0.33s ease-in-out;
 }
 #carouselItem_text {

@@ -1,0 +1,99 @@
+#auth_rightSection{
+    height: 100%;
+background-color: black;
+color: white;
+border-radius: 0;
+}
+#auth_rightSection_container{
+    padding: 15px;
+    height: 100%;
+}
+#auth_text{
+    text-align: center;
+}
+#auth_input_container{
+    margin: 20px;
+}
+#auth_input_icon{
+    color: white;
+}
+#auth_button{
+    width: 100%;
+background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+}
+#auth_login_forgotPassword{
+    color: lightcoral;
+text-align: right;
+margin: 10px;
+width: 100%;
+cursor: pointer;
+text-decoration: underline;
+}
+#auth_login_separator{
+    width: 100%;
+margin-top: 16px;
+margin-bottom: 16px;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+display: flex;
+flex-direction: row;
+}
+#auth_login_leftline{
+    width: 48%;
+content: "";
+display: block;
+height: 1px;
+background-color: rgb(221,221,221);
+margin-right: 10px;
+}
+#auth_login_rightline{
+    width: 48%;
+content: "";
+display: block;
+height: 1px;
+background-color: rgb(221,221,221);
+margin-left: 10px;
+}
+#auth_login_or{
+    align-items: center;
+    margin: -8px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+#auth_login_google{
+    color: white;
+text-transform: none;
+line-height: 30px;
+border-color: white;
+border-radius: 8px;
+}
+#auth_login_google_logo{
+    flex: 0 1 0%;
+position: absolute;
+left: 20px;
+}
+#auth_bottomText{
+    text-align: center;
+}
+#auth_login_signUp{
+    color: lightblue;
+cursor: pointer;
+text-decoration: underline;
+}
+#auth_forgotpassword_arrow{
+    left: 48px;
+    top: 48px;
+    position: absolute;
+    color: white;
+}
+#auth_forgotpassword_card{
+    padding: 30px;
+border-radius: 6px;
+color: white;
+background-color: black
+}
+#auth_forgotpassword_text{
+    margin-bottom: 40px;
+    text-align: center;
+}

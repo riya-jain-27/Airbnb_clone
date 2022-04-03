@@ -1,0 +1,126 @@
+.become_popup_container{
+    z-index: 2000;
+    position: fixed;
+    inset: 0;
+    max-height: 100vh;
+}
+.become_popup_content{
+    background: black;
+position: relative;
+height: 100%;
+max-height: 100%;
+width: 100vw;
+max-width: 100vw;
+display: flex;
+flex-direction: column;
+}
+.become_popup_closeButton{
+    top: 16px;
+left: 24px;
+z-index: 1;
+display: flex;
+position: absolute;
+}
+#become_popup_close{
+    color: white;
+height: 16px;
+width: 16px;
+} 
+.become_popup_videoContainer1{
+    display: flex;
+align-items: center;
+justify-content: center;
+height: 100%;
+}
+.become_popup_videoContainer2{
+    display: grid;
+overflow: hidden;
+border-radius: 16px;
+opacity: 0.999999;
+will-change: transform;
+width: min(100vw, calc(100vw - 2*(80px,0px)));
+height: calc(min(100vw, 100vw - 2 *var(80px,0px)) / calc(375/ 812));
+max-width: calc(100vw / calc(375/ 812));
+max-height: 100vh;
+}
+.become_popup_videoContainer3{
+    height: 100%;
+overflow: hidden;
+position: relative;
+width: 100%;
+will-change: transform;
+}
+.become_popup_video{
+    object-fit: contain;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.become_popup_videoTab{
+    cursor: auto;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.become_popup_videoTab_container{
+    position: absolute;
+    inset: 0px;
+    border-radius: 16px;
+    outline: none;
+}
+.become_popup_videoTab_buttons{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    pointer-events: none;
+    display: grid;
+    place-items: center;
+    opacity: 1;
+}
+.become_popup_videoTab_controls{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    place-content: center;
+}
+.become_popup_videoTab_options{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 960px;
+    flex: 1 1 0%;
+    border-radius: 12px;
+    backdrop-filter: blur(60px) saturate(140px);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 8px;
+}
+
+@media (min-width: 744px){
+    .become_popup_closeButton{
+        top: 24px;
+    }
+    .become_popup_videoContainer2{
+        max-width: calc(min(var(720px, 100vw), 100vw - 2 * var(48px, 0px)) / calc(375/ 812));
+        max-height: min(var(720px, 100vh), calc(100vh - 2*var(48px,0px)));
+    }
+    .become_popup_videoTab_controls{
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 24px;
+    }
+}
+
+@media (min-width: 1128px){
+    .become_popup_videoContainer2{
+        width: min(100vw, calc(100vw - 2*var(80px,0px)));
+        height: calc(min(100vw, 100vw - 2 *var(80px,0px)) / calc(375/ 812));
+    }
+}

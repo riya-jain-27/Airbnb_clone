@@ -23,7 +23,8 @@ const HostHome = () => {
     const [delhi, setDelhi] = useState("Delhi");
     const [isPlaying_1, setIsPlaying_1] = useState(true);
     const [isPlaying_2, setIsPlaying_2] = useState(true);
-    const [carouselItem, setCarouselItem] = useState(2);
+    const [current, setCurrent] = useState(2);
+    const length = 6;
 
     const vidRef_1 = useRef();
     const vidRef_2 = useRef();
@@ -72,6 +73,19 @@ const HostHome = () => {
 
     const handleSelect = (e) => {
         setGuests(e.target.value)
+    }
+
+    const nextSlide = () => {
+        if(current === 6){
+            document.getElementsById("hostHome_section2_forward_button").disabled = true;
+            current(1);
+        }
+        else
+            setCurrent(current+1);
+    }
+
+    const prevSlide = () => {
+        setCurrent(current === 0 ? 6 : current -1);
     }
     
     return(
@@ -139,20 +153,20 @@ const HostHome = () => {
                             <div className="hostHome_section2_carousel">
                                 <div className="hostHome_section2_carouselItems">
                                     <div className="hostHome_section2_emptyItem"></div>
-                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/4f3047b2-58ea-4335-8430-dfc6f436634d.jpg?im_w=720" content="Hosting my studio changed my life and gifted me with memorable experiences and people." sign_img="https://a0.muscache.com/im/pictures/f2b0e082-6872-47a3-a9f6-d01a9c44a088.jpg?im_w=240" location="Milan" />
-                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/31fb3cb1-c2a1-4e14-a9e9-6f279991790b.jpg?im_w=720" content="Hosting my home allowed me to become an entrepreneur and laid down a path to financial freedom." sign_img="https://a0.muscache.com/im/pictures/b0123613-6e48-4108-af8b-bb2d347b4de8.jpg?im_w=240" location="Atlanta" />
-                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/a464d642-695e-4d2c-aa51-2302de067f45.jpg?im_w=720" content="We’re able to keep our culture alive by hosting our pasta-making experience." sign_img="https://a0.muscache.com/im/pictures/4314911d-559f-4fc7-a493-2edce264d839.jpg?im_w=240" location="Palombara Sabina" />
-                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/d8627b07-b42c-40a1-807f-1eac9de39311.jpg?im_w=720" content="Airbnb has allowed me to create my own job doing what I love – taking care of guests in our home." sign_img="https://a0.muscache.com/im/pictures/80b16be2-f6bf-4a68-846f-b35d4b85c455.jpg?im_w=240" location="Chiang Mai" />
-                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/b56f3d7c-5006-4ed2-967a-c421e3275b1f.jpg?im_w=720" content="Hosting my Bedouin tent has introduced me to people around the world." sign_img="https://a0.muscache.com/im/pictures/82a3e33e-a83e-49e8-b642-0de04018075b.jpg?im_w=240" location="Wadi Rum" />
-                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/334530d8-2ad6-40e8-8fd2-4ac0835e693a.jpg?im_w=720" content="I love hosting my eco-home so people can connect with nature and their loved ones." sign_img="https://a0.muscache.com/im/pictures/62dccc5f-5fa6-4e24-8406-8ced33d1c403.jpg?im_w=240" location="Paraty" />
+                                    <CarouselItem className={current === 1 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/4f3047b2-58ea-4335-8430-dfc6f436634d.jpg?im_w=720" content="Hosting my studio changed my life and gifted me with memorable experiences and people." sign_img="https://a0.muscache.com/im/pictures/f2b0e082-6872-47a3-a9f6-d01a9c44a088.jpg?im_w=240" location="Milan" />
+                                    <CarouselItem className={current === 2 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/31fb3cb1-c2a1-4e14-a9e9-6f279991790b.jpg?im_w=720" content="Hosting my home allowed me to become an entrepreneur and laid down a path to financial freedom." sign_img="https://a0.muscache.com/im/pictures/b0123613-6e48-4108-af8b-bb2d347b4de8.jpg?im_w=240" location="Atlanta" />
+                                    <CarouselItem className={current === 3 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/a464d642-695e-4d2c-aa51-2302de067f45.jpg?im_w=720" content="We’re able to keep our culture alive by hosting our pasta-making experience." sign_img="https://a0.muscache.com/im/pictures/4314911d-559f-4fc7-a493-2edce264d839.jpg?im_w=240" location="Palombara Sabina" />
+                                    <CarouselItem className={current === 4 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/d8627b07-b42c-40a1-807f-1eac9de39311.jpg?im_w=720" content="Airbnb has allowed me to create my own job doing what I love – taking care of guests in our home." sign_img="https://a0.muscache.com/im/pictures/80b16be2-f6bf-4a68-846f-b35d4b85c455.jpg?im_w=240" location="Chiang Mai" />
+                                    <CarouselItem className={current === 5 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/b56f3d7c-5006-4ed2-967a-c421e3275b1f.jpg?im_w=720" content="Hosting my Bedouin tent has introduced me to people around the world." sign_img="https://a0.muscache.com/im/pictures/82a3e33e-a83e-49e8-b642-0de04018075b.jpg?im_w=240" location="Wadi Rum" />
+                                    <CarouselItem className={current === 6 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/334530d8-2ad6-40e8-8fd2-4ac0835e693a.jpg?im_w=720" content="I love hosting my eco-home so people can connect with nature and their loved ones." sign_img="https://a0.muscache.com/im/pictures/62dccc5f-5fa6-4e24-8406-8ced33d1c403.jpg?im_w=240" location="Paraty" />
                                     <div className="hostHome_section2_emptyItem"></div>
                                 </div>
                                 <div className="hostHome_section2_controls">
                                     <span className="hostHome_section2_back">
-                                        <IconButton id="hostHome_section2_back_button"><ArrowForwardIosIcon fontSize="small" /></IconButton>
+                                        <IconButton onClick={prevSlide} id="hostHome_section2_back_button"><ArrowForwardIosIcon fontSize="small" /></IconButton>
                                     </span>
                                     <span className="hostHome_section2_forward">
-                                        <IconButton id="hostHome_section2_forward_button"><ArrowForwardIosIcon fontSize="small" /></IconButton>
+                                        <IconButton onClick={nextSlide} id="hostHome_section2_forward_button"><ArrowForwardIosIcon fontSize="small" /></IconButton>
                                     </span>
                                 </div>
                             </div>

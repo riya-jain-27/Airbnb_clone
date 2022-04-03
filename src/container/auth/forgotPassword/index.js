@@ -11,6 +11,8 @@ import React, { useState } from "react";
 import { AccountCircle, Lock } from "@mui/icons-material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import axios from "axios";
+import "../styles.css";
+
 
 const ForgotPassword = () => {
   const [username, setUsername] = useState("");
@@ -46,23 +48,16 @@ const ForgotPassword = () => {
       <Grid container justify="center" alignItems="center" style={styles.root}>
         <IconButton
           onClick={() => window.history.go(-1)}
-          style={{ left: 48, top: 48, position: "absolute", color: "white" }}
+          id="auth_forgotpassword_arrow"
         >
           <ArrowBackIcon fontSize="large" />
         </IconButton>
-        <Card
-          style={{
-            padding: 30,
-            borderRadius: 6,
-            color: "white",
-            backgroundColor: "black",
-          }}
-        >
-          <Grid style={{ marginBottom: 40, textAlign: "center" }}>
+        <Card id="auth_forgotpassword_card">
+          <Grid id="auth_forgotpassword_text">
             <Typography variant="h5">Reset Password</Typography>
             <Typography variant="body1">Enter your new password</Typography>
           </Grid>
-          <Grid item md={12} style={{ margin: 20}}>
+          <Grid item md={12} id="auth_input_container">
             <TextField fullWidth sx={{ input: { color: 'white' }, label: { color: 'white' }, borderBottom: "1px solid white"}}
               label="Username"
               type={"string"}
@@ -70,14 +65,14 @@ const ForgotPassword = () => {
               variant="standard"
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start" style={{color: "white"}}>
+                  <InputAdornment position="start" id="auth_input_icon">
                     <AccountCircle />
                   </InputAdornment>
                 ),
               }}
             />
           </Grid>
-          <Grid item md={12} style={{ margin: 20 }}>
+          <Grid item md={12} id="auth_input_container">
             <TextField
               fullWidth
               sx={{
@@ -91,14 +86,14 @@ const ForgotPassword = () => {
               variant="standard"
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start" style={{ color: "white" }}>
+                  <InputAdornment position="start" id="auth_input_icon">
                     <Lock />
                   </InputAdornment>
                 ),
               }}
             />
           </Grid>
-          <Grid item md={12} style={{ margin: 20 }}>
+          <Grid item md={12} id="auth_input_container">
             <TextField
               fullWidth
               sx={{
@@ -112,7 +107,7 @@ const ForgotPassword = () => {
               variant="standard"
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start" style={{ color: "white" }}>
+                  <InputAdornment position="start" id="auth_input_icon">
                     <Lock />
                   </InputAdornment>
                 ),
@@ -122,9 +117,7 @@ const ForgotPassword = () => {
           <Grid md={12}>
             <Button
               fullWidth
-              style={{
-                background: "linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%)",
-              }}
+              id="auth_button"
               onClick={handleSubmit}
               variant="contained"
             >
