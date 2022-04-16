@@ -76,8 +76,8 @@ const HelpCentre = (props) => {
                                 {
                                     messages.map((msg,i)=>{
                                         return(
-                                            <div className="helpCentre_textMessage">
-                                                <Typography key={i} id="helpCentre_userMessage"><span className="helpCentre_senderName">{`${msg.user}`}</span> <span className="helpCentre_time">{`${msg.timestamp}`}</span><br />{`${msg.message}`}</Typography>
+                                            <div key={i} className="helpCentre_textMessage">
+                                                <Typography  id="helpCentre_userMessage"><span className="helpCentre_senderName">{`${msg.user}`}</span> <span className="helpCentre_time">{`${msg.timestamp}`}</span><br />{`${msg.message}`}</Typography>
                                             </div>
                                         )
                                     })

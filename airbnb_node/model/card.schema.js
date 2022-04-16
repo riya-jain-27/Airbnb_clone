@@ -26,6 +26,11 @@ const CardSchema = new mongoose.Schema({
         required: "Date is required",
         trim: true,
     },
+    category: {
+        type: String,
+        required: "Category is required",
+        trim: true,
+    },
 })
 
-module.exports = mongoose.model("Card", CardSchema);
+module.exports = mongoose.model("card", CardSchema);

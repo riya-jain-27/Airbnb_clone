@@ -29,9 +29,7 @@ const BecomeAHost = () => {
 
     return(
         <>
-
-        
-        {isPopupOpen ? (
+        {/* {isPopupOpen ? (
             <div className="become_popup_container">
                 <div className="become_popup_content">
                     <div className="become_popup_closeButton">
@@ -64,7 +62,7 @@ const BecomeAHost = () => {
                     </div>
                 </div>
             </div>
-        ) : (
+        ) : ( */}
             <Grid style={{display: "flex", flexDirection: "row", opacity: 1, width: "100%", height: "100vh", transition: "opacity 600ms"}}>
                 <Grid style={{display: "flex", flexGrow: 1, minHeight: "50%", flexDirection: "column", width: "50%", height: "100vh", maxHeight: "100%", position: "fixed", alignItems: "flex-start", justifyContent: "flex-end"}}>
                     <div style={{position: "fixed", zIndex: 1, top: 32, left: 48, display: "inline"}}>
@@ -132,7 +130,7 @@ const BecomeAHost = () => {
                     </div>
                 </Grid>
             </Grid>
-        )}
+        {/* )} */}
 
         </>
     )

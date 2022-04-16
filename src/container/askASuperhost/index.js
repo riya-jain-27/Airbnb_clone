@@ -8,6 +8,10 @@ import "./style.css";
 
 const AskASuperhost = () =>{
     const [isPlaying, setIsPlaying] = useState(true);
+    const name = ["Teddy", "Vidal", "Steven", "Sally", "Loubna", "Teddy", "Vidal", "Steven", "Sally", "Loubna", "Loubna", "Loubna", "Loubna"]
+    const year = ["2015", "2017", "2016", "2017", "2017","2015", "2017", "2016", "2017", "2017", "2017", "2017", "2017"]
+    const [counter, setCounter] = useState(0)
+    const [scrollHeight, setScrollHeight] = useState(0);
 
     const vidRef = useRef();
     const navigate = useNavigate();
@@ -25,6 +29,32 @@ const AskASuperhost = () =>{
         setIsPlaying(true);
         vidRef.current.play()
     }
+    const inst = setInterval(change, 2000)
+    function change(){
+        if(isPlaying){ 
+            setCounter((counter+1)%12);
+            clearInterval(inst);
+        }
+    }
+
+    window.onscroll = () =>{
+        const newScrollHeight = Math.ceil(window.scrollY / 50) * 50;
+        setScrollHeight(newScrollHeight);
+    }
+    const opacity = Math.min((1 - scrollHeight / 300), 1);
+
+    // <script>
+    //     {window.scroll(function() {
+    //         let scroll = this.scroll();            
+    //         ('#superhost_header_button').css({
+    //             opacity: function(){
+    //                 var elemHeight = this.height(),
+    //                 opacity = ((1 - (elemHeight - scroll) / elemHeight) * 0.2);
+    //                 return opacity;
+    //             }
+    //             });
+    //     })}
+    // </script>
 
     return(
         <>
@@ -45,12 +75,12 @@ const AskASuperhost = () =>{
                 
                 <div className="superhost_section1_container1">
                     <div className="superhost_section1_container2">
-                        <div className="superhost_section1_content">
+                        <div className="superhost_section1_content" style={{opacity: `${opacity}`}}>
                             <h1 className="superhost_section1_text_container">
                                 <span className="superhost_section1_text">Questions about hosting?</span>
                             </h1>
                             <div className="superhost_section1_button_container">
-                                <Button variant="contained" id="superhost_section1_button">Ask a Superhost</Button>
+                                <Button onClick={()=>navigate("/becomeHost")} variant="contained" id="superhost_section1_button">Ask a Superhost</Button>
                             </div>
                         </div>
                     </div>
@@ -75,9 +105,9 @@ const AskASuperhost = () =>{
                                 <div className="superhost_section2_gradient"></div>
                                 <div className="superhost_section2_rightSection_content">
                                     <div className="superhost_section2_text_container">
-                                        <span className="superhost_section2_name_year">Loubna</span>
+                                        <span className="superhost_section2_name_year">{name[counter]}</span>
                                         <span className="superhost_section2_dot"></span>
-                                        <span className="superhost_section2_name_year">Hosting since 2017</span>
+                                        <span className="superhost_section2_name_year">Hosting since {year[counter]}</span>
                                     </div>
                                 </div>
                                 <div className="superhost_section2_button">
@@ -116,7 +146,7 @@ const AskASuperhost = () =>{
                                         <img className="superhost_section4_image" src="https://a0.muscache.com/im/pictures/ed9358e5-6a01-41fb-b911-6c5e1af976b7.jpg?im_w=2560&amp;im_q=highq" />
                                     </div>
                                 </div>
-                                <div className="superhost_section4_content">
+                                <div className="superhost_section4_content" style={{opacity: window.scrollY>2320 ? 0:1}}>
                                     <div className="superhost_section4_card">
                                         <div className="superhost_section4_card_content">
                                             <div className="superhost_section4_step">Step 1</div>
@@ -146,7 +176,7 @@ const AskASuperhost = () =>{
                                         <img className="superhost_section4_image" src="https://a0.muscache.com/im/pictures/f6786475-e93f-411c-b2b9-5c29fe714050.jpg?im_w=2560&im_q=highq" />
                                     </div>
                                 </div>
-                                <div className="superhost_section4_content">
+                                <div className="superhost_section4_content" style={{opacity: window.scrollY>3200 ? 0:1}}>
                                     <div className="superhost_section4_card">
                                         <div className="superhost_section4_card_content">
                                             <div className="superhost_section4_step">Step 2</div>
@@ -192,7 +222,7 @@ const AskASuperhost = () =>{
                                 </div>
                                 <div className="superhost_section4_content">
                                     <div className="superhost_section4_card">
-                                        <div className="superhost_section4_card_content">
+                                        <div className="superhost_section4_card_content" style={{opacity: window.scrollY>4100 ? 0:1}}>
                                             <div className="superhost_section4_step">Step 3</div>
                                             <div className="superhost_section4_stepDesc">Confidently welcome your first guest</div>
                                             <div className="superhost_section4_border"></div>

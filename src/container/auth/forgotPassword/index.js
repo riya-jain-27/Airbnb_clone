@@ -114,7 +114,7 @@ const ForgotPassword = () => {
               }}
             />
           </Grid>
-          <Grid md={12}>
+          <Grid item md={12}>
             <Button
               fullWidth
               id="auth_button"

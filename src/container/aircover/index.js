@@ -14,32 +14,6 @@ const AirCover = () => {
     const [ans7,setAns7] = useState(false);
 
     const navigate = useNavigate();
-    // const data = {
-    //   1: {
-    //     ques: "What is AirCover?",
-    //     ans: "AirCover is top-to-bottom protection for Hosts. It includes $1m Host liability insurance, $1m Experiences liability insurance, and $1m Host damage protection, with new coverage for pet damage, deep cleaning, and more.",
-    //   },
-    //   2: {
-    //     ques: "What’s the difference between damage protection and liability insurance?",
-    //     ans: "Host damage protection covers you if your place or belongings ever get damaged by a guest during an Airbnb stay. Host liability insurance applies in the rare event that a guest gets hurt during an Airbnb stay or Experience.",
-    //   },
-    //   3: {
-    //     ques: "How does AirCover work with my personal insurance?",
-    //     ans: "While AirCover protects you while you’re hosting an Airbnb stay or Experience, it is not a substitute for personal insurance. Since everyone’s situation is different, you should talk to your insurer to see how or if your policy overlaps with AirCover.",
-    //   },
-    //   4: {
-    //     ques: "Are there damages that AirCover doesn’t cover?",
-    //     ans: "AirCover doesn’t cover normal wear and tear or losses incurred due to acts of nature (like earthquakes and hurricanes). You can find a complete list here.",
-    //   },
-    //   5: {
-    //     ques: "I host an Experience. Am I protected by AirCover?",
-    //     ans: "Yes. AirCover’s Experiences liability insurance applies to you in the rare event that a guest gets hurt or their belongings are damaged during your Experience.",
-    //   },
-    //   6: {
-    //     ques: "How long does it take to get reimbursed through AirCover for damage?",
-    //     ans: "We always try to resolve damage reimbursement requests as quickly as possible – within 9 days on average.",
-    //   },
-    // };
     
     return(
         <>
@@ -60,8 +34,8 @@ const AirCover = () => {
             <div className="aircover_section1_container">
                 <div className="aircover_section1_bg">
                     <picture>
-                        <source media="(min-width: 744px)" srcset="https://a0.muscache.com/pictures/9453c80d-cbae-487e-9837-e4e3069a9224.jpg" />
-                        <source media="(max-width: 743px)" srcset="https://a0.muscache.com/im/pictures/d172d5be-2f2d-4ab7-b101-fa6c71552b82.jpg?im_w=1440&amp;im_q=highq" />
+                        <source media="(min-width: 744px)" srcSet="https://a0.muscache.com/pictures/9453c80d-cbae-487e-9837-e4e3069a9224.jpg" />
+                        <source media="(max-width: 743px)" srcSet="https://a0.muscache.com/im/pictures/d172d5be-2f2d-4ab7-b101-fa6c71552b82.jpg?im_w=1440&amp;im_q=highq" />
                         <img className="aircover_section1_img" src="https://a0.muscache.com/pictures/9453c80d-cbae-487e-9837-e4e3069a9224.jpg" />
                     </picture>
                 </div>

@@ -10,7 +10,7 @@
   height: 72px;
   will-change: opacity;
   visibility: visible;
-  opacity: 1;
+  /* opacity: 1; */
 }
 .hostHome_header1_logoStyle {
   position: relative;
@@ -96,8 +96,8 @@
   color: #222222;
   position: relative;
   height: 100%;
-  min-height: 40%;
-  max-height: 40%;
+  min-height: 28%;
+  max-height: 28%;
   border-radius: 12px 12px 0px 0px;
   z-index: 1;
 }
@@ -271,8 +271,6 @@
   scroll-snap-stop: always;
   display: none;
   flex-direction: column;
-}
-.hostHome_section2_carouselItem{
 }
 .hostHome_section2_controls {
   right: 40%;
@@ -590,8 +588,8 @@
     height: 60px;
   }
   .hostHome_section1_leftSection_container {
-    min-height: 28%;
-    max-height: 28%;
+    min-height: 40%;
+    max-height: 40%;
   }
   #hostHome_section1_leftSection_text {
     padding: 48px;
@@ -653,9 +651,9 @@
     scroll-snap-align: start;
     display: flex;
   }
-  .hostHome_section2_controls {
+  /* .hostHome_section2_controls {
     visibility: visible;
-  }
+  } */
   .hostHome_section3_container {
     height: 460px;
     padding-top: 80px;

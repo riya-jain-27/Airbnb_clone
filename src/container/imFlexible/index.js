@@ -1,15 +1,61 @@
-import React, { useState } from "react";
-import { Button, Grid, Tab, Tabs, IconButton, Hidden} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Button, Grid, Tab, Tabs, IconButton, Hidden, getCardMediaUtilityClass} from "@mui/material";
 import "./styles.css";
 import Footer from "../../component/footer";
 import { useNavigate } from "react-router-dom";
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
-
+import {useSelector, useDispatch} from "react-redux";
+import axios from "axios";
+import * as actionTypes from "../../redux/actiontypes";
+import { color } from "@mui/system";
 
 const Flexible = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isProfileOpen, setProfileOpen] = useState(false);
-  const [category, setCategory] = useState(false);
+  const [category, setCategory] = useState("farms");
+  const [tab, setTab] = useState("Farms");
+  
+  useEffect(()=>{
+    getCardData()
+  },[])
+
+  const cards = useSelector((store)=> {return store.cards})
+  const cardCategories = ["farms", "beachfront", "amazing pools", "offbeat"]
+  const tabCategories = ["Farms", "Beachfront",  "Amazing pools", "Offbeat", "Cabins", "Tiny homes", "Treehouses", "A-frames", "Containers", "Castles", "Cycladic homes", "Domes", "Islands", "Luxe", "Houseboats", "Kezhans", "Off-the-grid", "Barns", "Ryokans", "Yurts", "Campervans", "Trulli", "Boats", "Ski-in/Ski-out"]
+  const icons = ["https://a0.muscache.com/pictures/373869d1-31bb-4a47-95d9-ccd5e478b715.jpg",
+                 "https://a0.muscache.com/pictures/483c0cae-5bfe-45b3-b4e4-8697253b2875.jpg",
+                 "https://a0.muscache.com/pictures/ea71f998-267a-4ffd-9ca8-ee70814dd775.jpg",
+                 "https://a0.muscache.com/pictures/62a57a75-2906-463f-ad3d-e5beed43b3aa.jpg",
+                 "https://a0.muscache.com/pictures/ddab88e4-da9d-4e7c-8af8-165507476572.jpg",
+                 "https://a0.muscache.com/pictures/c54d41c5-c279-442f-9ec3-afbc1c5104cb.jpg",
+                 "https://a0.muscache.com/pictures/ac09b78a-19c0-46fc-b604-fc90a8912864.jpg",
+                 "https://a0.muscache.com/pictures/2f4996be-1e1d-4e34-b966-e5d381b3f438.jpg",
+                 "https://a0.muscache.com/pictures/95f799e1-079a-4fd0-ad2e-ba240c92457e.jpg",
+                 "https://a0.muscache.com/pictures/8565b4ea-91f1-403a-86cb-ba3f676968e3.jpg",
+                 "https://a0.muscache.com/pictures/ff7a78db-3fcf-4707-86de-8a4eb3096c82.jpg",
+                 "https://a0.muscache.com/pictures/8548edf5-3e60-4b72-b597-c05ce24673c7.jpg",
+                 "https://a0.muscache.com/pictures/4f1d6994-4898-4b2c-9186-a5f7f59eebf6.jpg",
+                 "https://a0.muscache.com/pictures/dfe265d9-06b5-48f5-ad2d-0fa6be296069.jpg",
+                 "https://a0.muscache.com/pictures/f30562b6-2382-41a0-bf3e-28bf97fbe68a.jpg",
+                 "https://a0.muscache.com/pictures/e7b107e1-f59d-4caa-b77c-2f19579dfd58.jpg",
+                 "https://a0.muscache.com/pictures/565d2b91-07d8-43bb-b593-abe9c025e7eb.jpg",
+                 "https://a0.muscache.com/pictures/e40acf5d-4fb0-4e22-9fbf-9dbb3426cf53.jpg",
+                 "https://a0.muscache.com/pictures/bee64a5a-5246-4bdb-8500-42b0c3e74e87.jpg",
+                 "https://a0.muscache.com/pictures/7afe7c96-f4df-4c0f-b6c6-42ae2ceafb33.jpg",
+                 "https://a0.muscache.com/pictures/bfc3ca12-f96b-4595-9402-51611f7aa429.jpg",
+                 "https://a0.muscache.com/pictures/7e4d48c9-f118-4b90-82e1-cdcc1dfa9688.jpg",
+                 "https://a0.muscache.com/pictures/5971ffd9-2897-4bb0-8ad6-a641690ffaba.jpg",
+                 "https://a0.muscache.com/pictures/5c82b8cb-6e67-4ea9-9ec7-1ba2c5b3bce6.jpg"]
+
+  const getCardData = async () => {
+    try{
+      const response = await axios.get("http://localhost:8005/flexible/cards")
+      dispatch({type: actionTypes.STORE_CARDS, payload: response.data})
+    }catch(err){
+      console.log(err);
+    }
+  }
 
   return(
     <>
@@ -48,7 +94,7 @@ const Flexible = () => {
                 <div className="flexible_nav_options">
                   <button onClick={()=>setProfileOpen(!isProfileOpen)} className="flexible_profile_button">
                     <div className="flexible_bar">
-                      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: 16, width: 16, stroke: "currentcolor", strokeWidth: 3, overflow: "visible"}}><g fill="none" fill-rule="nonzero"><path d="m2 16h28"></path><path d="m2 24h28"></path><path d="m2 8h28"></path></g></svg>
+                      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: 16, width: 16, stroke: "currentcolor", strokeWidth: 3, overflow: "visible"}}><g fill="none" fillRule="nonzero"><path d="m2 16h28"></path><path d="m2 24h28"></path><path d="m2 8h28"></path></g></svg>
                     </div>
                     <div className="flexible_profile">
                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", height: "100%", width: "100%", fill: "currentcolor"}}><path d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"></path></svg>
@@ -86,246 +132,23 @@ const Flexible = () => {
                 <div className="flexible_navbar_tabs_section">
                     <div className="flexible_navbar_tabs_section_2">
                         <div className="flexible_navbar_flexbox_content">
-                          <div className="flexible_navbar_tab_item_container">
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/373869d1-31bb-4a47-95d9-ccd5e478b715.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Farms</div>
+  
+                          {tabCategories.map((item,index) => {
+                            return(
+                              <div key={index} style={{position: "relative", borderBottom: tab==item ? "3px solid rgb(34,34,34)" : null}}>
+                                <button onClick={()=> setTab(item)} style={{color: tab==item ? "rgb(34,34,34)" : "rgb(113, 113, 113)"}}  className="flexible_navbar_tab_item">
+                                  <div className="flexible_navbar_tab_item_content">
+                                    {tab==item ? 
+                                    (<div className="flexible_navbar_tab_item_iconContainer">
+                                      <img className="flexible_navbar_tab_item_icon" alt="" src={icons[index]}></img>
+                                    </div>) : null}
+                                    <div className="flexible_navbar_tab_item_text">{item}</div>
+                                  </div>
+                                </button>
                               </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/483c0cae-5bfe-45b3-b4e4-8697253b2875.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Beachfront</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/ea71f998-267a-4ffd-9ca8-ee70814dd775.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Amazing pools</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/62a57a75-2906-463f-ad3d-e5beed43b3aa.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Offset</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/ddab88e4-da9d-4e7c-8af8-165507476572.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Cabins</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/c54d41c5-c279-442f-9ec3-afbc1c5104cb.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Tiny homes</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/ac09b78a-19c0-46fc-b604-fc90a8912864.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Treehouses</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/2f4996be-1e1d-4e34-b966-e5d381b3f438.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">A-frames</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/95f799e1-079a-4fd0-ad2e-ba240c92457e.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Containers</div>
-                              </div>
-                            </button>
-                          </div>
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/8565b4ea-91f1-403a-86cb-ba3f676968e3.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Castles</div>
-                              </div>
-                            </button>
-                          </div>
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/ff7a78db-3fcf-4707-86de-8a4eb3096c82.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Cycladic homes</div>
-                              </div>
-                            </button>
-                          </div>
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/8548edf5-3e60-4b72-b597-c05ce24673c7.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Domes</div>
-                              </div>
-                            </button>
-                          </div>
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/4f1d6994-4898-4b2c-9186-a5f7f59eebf6.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Islands</div>
-                              </div>
-                            </button>
-                          </div>
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/dfe265d9-06b5-48f5-ad2d-0fa6be296069.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Luxe</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/f30562b6-2382-41a0-bf3e-28bf97fbe68a.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Houseboats</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/e7b107e1-f59d-4caa-b77c-2f19579dfd58.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Kezhans</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/565d2b91-07d8-43bb-b593-abe9c025e7eb.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Off-the-grid</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/e40acf5d-4fb0-4e22-9fbf-9dbb3426cf53.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Barns</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/bee64a5a-5246-4bdb-8500-42b0c3e74e87.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Ryokans</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/7afe7c96-f4df-4c0f-b6c6-42ae2ceafb33.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Yurts</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/bfc3ca12-f96b-4595-9402-51611f7aa429.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Campervans</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/7e4d48c9-f118-4b90-82e1-cdcc1dfa9688.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Trulli</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/5971ffd9-2897-4bb0-8ad6-a641690ffaba.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Boats</div>
-                              </div>
-                            </button>
-                          </div> 
-                          <div style={{position: "relative"}}>
-                            <button className="flexible_navbar_tab_item">
-                              <div className="flexible_navbar_tab_item_content">
-                                {/* <div className="flexible_navbar_tab_item_iconContainer">
-                                  <img className="flexible_navbar_tab_item_icon" alt="" src="https://a0.muscache.com/pictures/5c82b8cb-6e67-4ea9-9ec7-1ba2c5b3bce6.jpg"></img>
-                                </div> */}
-                                <div className="flexible_navbar_tab_item_text">Ski-in/Ski-out</div>
-                              </div>
-                            </button>
-                          </div> 
+                            )
+                          })}
+                           
                         </div>
                     </div>
                 </div>
@@ -343,120 +166,126 @@ const Flexible = () => {
                   <div className="flexible_page_section">
                     <div className="flexible_page_content">
                       <div className="flexible_page_grid">
+                        
+                        {cards.map((val,index) => {
+                            {if (val.category==cardCategories[(tabCategories.indexOf(tab))%4])
+                              {return(
+                              <div className="flexible_card_container1">
+                                <div className="flexible_card_container2">
+                                  <div>
+                                    <div className="flexible_card_container3">
 
-                        <div className="flexible_card_container1">
-                          <div className="flexible_card_container2">
-                            <div>
-                              <div className="flexible_card_container3">
-
-                                <div className="flexible_card_part1">
-                                  <div className="flexible_part1_container">
-                                    
-                                    <div className="flexible_card_content1">
-                                      <div className="flexible_card_content2">
-                                        <div className="flexible_card_content3">
-                                          <span>
-                                            <div className="flexible_card_imgContainer1">
-                                              <div className="flexible_card_imgContainer2">
-                                                <div className="flexible_card_imgContainer3">
-                                                  <div role="img" className="flexible_image_container">
-                                                    <picture>
-                                                      <source srcSet="https://a0.muscache.com/im/pictures/miso/Hosting-48617245/original/ed9478c6-a3b5-473a-866b-fd4ba2e878fa.jpeg?im_w=720 1x" media="(max-width: 743px)" />
-                                                      <source srcSet="https://a0.muscache.com/im/pictures/miso/Hosting-48617245/original/ed9478c6-a3b5-473a-866b-fd4ba2e878fa.jpeg?im_w=720 1x" media="(min-width: 743.1px) and (max-width: 1127px)" />
-                                                      <source srcSet="https://a0.muscache.com/im/pictures/miso/Hosting-48617245/original/ed9478c6-a3b5-473a-866b-fd4ba2e878fa.jpeg?im_w=720 1x" media="(min-width: 1127.1px) and (max-width: 1439px)" />
-                                                      <img className="flexible_card_image" aria-hidden="true" alt="Image 4" elementtiming="LCP-target" src="https://a0.muscache.com/im/pictures/miso/Hosting-48617245/original/ed9478c6-a3b5-473a-866b-fd4ba2e878fa.jpeg?im_w=720" data-original-uri="https://a0.muscache.com/im/pictures/miso/Hosting-48617245/original/ed9478c6-a3b5-473a-866b-fd4ba2e878fa.jpeg?im_w=720" />
-                                                    </picture>
-                                                    <div className="flexible_card_background"></div>
+                                      <div className="flexible_card_part1">
+                                        <div className="flexible_part1_container">
+                                          
+                                          <div className="flexible_card_content1">
+                                            <div className="flexible_card_content2">
+                                              <div className="flexible_card_content3">
+                                                <span>
+                                                  <div className="flexible_card_imgContainer1">
+                                                    <div className="flexible_card_imgContainer2">
+                                                      <div className="flexible_card_imgContainer3">
+                                                        <div role="img" className="flexible_image_container">
+                                                          <picture>
+                                                            <source srcSet={val.url} media="(max-width: 743px)" />
+                                                            <source srcSet={val.url} media="(min-width: 743.1px) and (max-width: 1127px)" />
+                                                            <source srcSet={val.url} media="(min-width: 1127.1px) and (max-width: 1439px)" />
+                                                            <img className="flexible_card_image" aria-hidden="true" alt="Image 4" elementtiming="LCP-target" src={val.url} /> 
+                                                          </picture>
+                                                          <div className="flexible_card_background"></div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </span>
+                                                <div className="flexible_carousel_scroll1">
+                                                  <div className="flexible_carousel_scroll2">
+                                                    <div className="flexible_carousel_dots">
+                                                      <div className="flexible_scroll_dots">
+                                                        <span className="flexible_card_activeDot"></span>
+                                                        <span className="flexible_card_dot"></span>
+                                                        <span className="flexible_card_dot"></span>
+                                                        <span className="flexible_card_dot"></span>
+                                                      </div>
+                                                    </div>
                                                   </div>
                                                 </div>
                                               </div>
                                             </div>
-                                          </span>
-                                          <div className="flexible_carousel_scroll1">
-                                            <div className="flexible_carousel_scroll2">
-                                              <div className="flexible_carousel_dots">
-                                                <div className="flexible_scroll_dots">
-                                                  <span className="flexible_card_activeDot"></span>
-                                                  <span className="flexible_card_dot"></span>
-                                                  <span className="flexible_card_dot"></span>
-                                                  <span className="flexible_card_dot"></span>
+                                          </div>
+
+                                          <div className="flexible_card_grid">
+                                            <div className="flexible_card_grid1">
+                                              <div></div>
+                                              <div className="flexible_favourite_button">
+                                                <button className="flexible_card_favourite">
+                                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" className="flexible_card_heart"><path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path></svg>
+                                                </button>
+                                              </div>
+                                            </div>
+
+                                            <div className="flexible_card_grid2">
+                                              <div className="flexible_card_prev">
+                                                <button className="flexible_card_button">
+                                                  <span>
+                                                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" className="flexible_card_arrow"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg>
+                                                  </span>
+                                                </button>
+                                              </div>
+                                              <div className="flexible_card_next">
+                                                <button className="flexible_card_button">
+                                                  <span>
+                                                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" className="flexible_card_arrow"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg>
+                                                  </span>
+                                                </button>
+                                              </div>
+                                            </div>
+
+                                            <div className="flexible_card_grid3"></div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div className="flexible_card_part2">
+                                        <div>
+                                          <div className="flexible_location_container">
+                                            <span className="flexible_card_location">
+                                              {val.location}
+                                            </span>
+                                          </div>
+                                        </div>
+                                        <div className="flexible_price_container1">
+                                          <div>
+                                            <div className="flexible_price_container2">
+                                              <div className="flexible_price_container3">
+                                                <div className="flexible_card_price">
+                                                  <span>₹{val.price}</span>
+                                                  <span> / night</span>
                                                 </div>
                                               </div>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
-                                    </div>
 
-                                    <div className="flexible_card_grid">
-                                      <div className="flexible_card_grid1">
-                                        <div></div>
-                                        <div className="flexible_favourite_button">
-                                          <button className="flexible_card_favourite">
-                                           <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" className="flexible_card_heart"><path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path></svg>
-                                          </button>
-                                        </div>
-                                      </div>
-
-                                      <div className="flexible_card_grid2">
-                                        <div className="flexible_card_prev">
-                                          <button className="flexible_card_button">
-                                            <span>
-                                              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" className="flexible_card_arrow"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg>
-                                            </span>
-                                          </button>
-                                        </div>
-                                        <div className="flexible_card_next">
-                                          <button className="flexible_card_button">
-                                            <span>
-                                              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" className="flexible_card_arrow"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg>
-                                            </span>
-                                          </button>
-                                        </div>
-                                      </div>
-
-                                      <div className="flexible_card_grid3"></div>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div className="flexible_card_part2">
-                                  <div>
-                                    <div className="flexible_location_container">
-                                      <span className="flexible_card_location">
-                                        Jari, Himachal Pradesh
-                                      </span>
-                                    </div>
-                                  </div>
-                                  <div className="flexible_price_container1">
-                                    <div>
-                                      <div className="flexible_price_container2">
-                                        <div className="flexible_price_container3">
-                                          <div className="flexible_card_price">
-                                            <span>₹7,814</span>
-                                            <span> / night</span>
+                                      <div className="flexible_card_part3">
+                                        <div>
+                                          <div className="flexible_card_distance">
+                                            {val.distance} kilometers away
                                           </div>
-                                        </div>
+                                        </div>                                  
+                                        <div className="flexible_card_date">
+                                          {val.date}
+                                        </div>                                  
                                       </div>
+                                    
                                     </div>
                                   </div>
                                 </div>
-
-                                <div className="flexible_card_part3">
-                                  <div>
-                                    <div className="flexible_card_distance">
-                                      378 kilometers away
-                                    </div>
-                                  </div>                                  
-                                  <div className="flexible_card_date">
-                                    7-14 May
-                                  </div>                                  
-                                </div>
-                              
                               </div>
-                            </div>
-                          </div>
-                        </div>
+                              )}
+                            }
+                        })}
 
                       </div>
                     </div>
@@ -467,9 +296,6 @@ const Flexible = () => {
           </div>
         </main>
       </div>
-
-      
-
 
       <Footer />
     </>

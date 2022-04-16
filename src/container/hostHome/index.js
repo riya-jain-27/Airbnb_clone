@@ -23,13 +23,26 @@ const HostHome = () => {
     const [delhi, setDelhi] = useState("Delhi");
     const [isPlaying_1, setIsPlaying_1] = useState(true);
     const [isPlaying_2, setIsPlaying_2] = useState(true);
-    const [current, setCurrent] = useState(2);
-    const length = 6;
+    const [counter, setCounter] = useState(0);
 
     const vidRef_1 = useRef();
     const vidRef_2 = useRef();
     const scrollTo = useRef();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
+    const name = ["https://a0.muscache.com/im/pictures/cac9415a-acfb-4c92-a6d0-770e948741b1.jpg?im_w=480",
+                  "https://a0.muscache.com/im/pictures/9849ff03-6166-41c5-bbf7-80c908b4820c.jpg?im_w=480",
+                  "https://a0.muscache.com/im/pictures/adf2bfef-5ddc-41d6-86b5-a49d274f4f54.jpg?im_w=480",
+                  "https://a0.muscache.com/im/pictures/b78b2eb7-2d63-4c8d-9246-6b08c457c9cc.jpg?im_w=480"]
+    const location = ["Philadelphia", "Mumbai", "Johannesburg", "Mexico City"]
+
+    const inst = setInterval(change, 2400)
+    function change(){
+        if(isPlaying_1){ 
+            clearInterval(inst);
+            setCounter((counter+1)%4);
+        }
+    }
+    
 
     const handleDownArrow = () => {
         scrollTo.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -71,36 +84,34 @@ const HostHome = () => {
         setIsDelhiOpen(!isDelhiOpen)
     }
 
-    const handleSelect = (e) => {
-        setGuests(e.target.value)
-    }
-
-    const nextSlide = () => {
-        if(current === 6){
-            document.getElementsById("hostHome_section2_forward_button").disabled = true;
-            current(1);
+    const handleSelect = (item,category) => {
+        if(category=="guest"){
+            setGuests(item)
+            setIsGuestOpen(!isGuestOpen)
         }
-        else
-            setCurrent(current+1);
+        if(category=="place"){
+            setPlace(item)
+            setIsPlaceOpen(!isPlaceOpen)
+        }
+        if(category=="delhi"){
+            setDelhi(item)
+            setIsDelhiOpen(!isDelhiOpen)
+        }
     }
 
-    const prevSlide = () => {
-        setCurrent(current === 0 ? 6 : current -1);
-    }
-    
     return(
         <>
-            <div className="hostHome_header1_container">
+            <div className="hostHome_header1_container" style={{opacity: window.scrollY > 600 ? 1 : 0}}>
                 <div className="hostHome_header1_logoStyle">
                     <svg onClick={()=>navigate("/")} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-label="Airbnb homepage" role="img" focusable="false" className="hostHome_header1_logo"><path d="M16 1c2.008 0 3.463.963 4.751 3.269l.533 1.025c1.954 3.83 6.114 12.54 7.1 14.836l.145.353c.667 1.591.91 2.472.96 3.396l.01.415.001.228c0 4.062-2.877 6.478-6.357 6.478-2.224 0-4.556-1.258-6.709-3.386l-.257-.26-.172-.179h-.011l-.176.185c-2.044 2.1-4.267 3.42-6.414 3.615l-.28.019-.267.006C5.377 31 2.5 28.584 2.5 24.522l.005-.469c.026-.928.23-1.768.83-3.244l.216-.524c.966-2.298 6.083-12.989 7.707-16.034C12.537 1.963 13.992 1 16 1zm0 2c-1.239 0-2.053.539-2.987 2.21l-.523 1.008c-1.926 3.776-6.06 12.43-7.031 14.692l-.345.836c-.427 1.071-.573 1.655-.605 2.24l-.009.33v.206C4.5 27.395 6.411 29 8.857 29c1.773 0 3.87-1.236 5.831-3.354-2.295-2.938-3.855-6.45-3.855-8.91 0-2.913 1.933-5.386 5.178-5.42 3.223.034 5.156 2.507 5.156 5.42 0 2.456-1.555 5.96-3.855 8.907C19.277 27.766 21.37 29 23.142 29c2.447 0 4.358-1.605 4.358-4.478l-.004-.411c-.019-.672-.17-1.296-.714-2.62l-.248-.6c-1.065-2.478-5.993-12.768-7.538-15.664C18.053 3.539 17.24 3 16 3zm.01 10.316c-2.01.021-3.177 1.514-3.177 3.42 0 1.797 1.18 4.58 2.955 7.044l.21.287.174-.234c1.73-2.385 2.898-5.066 2.989-6.875l.006-.221c0-1.906-1.167-3.4-3.156-3.421h-.001z"></path></svg>
                 </div>
                 <div className="hostHome_header1_buttonStyle">
-                    <Button variant="contained" id="hostHome_header1_button">Try hosting</Button>
+                    <Button onClick={()=>{navigate("/becomeHost")}} variant="contained" id="hostHome_header1_button">Try hosting</Button>
                 </div>
             </div>
 
             <div className="hostHome_header2_container">
-                <Button variant="contained" id="hostHome_header2_button">Try hosting</Button>
+                <Button onClick={()=>{navigate("/becomeHost")}} variant="contained" id="hostHome_header2_button">Try hosting</Button>
             </div>
 
 
@@ -112,7 +123,7 @@ const HostHome = () => {
                     <div className="hostHome_section1_leftSection_container">
                         <div className="hostHome_section1_leftSection_content">
                             <Typography variant="h2" id="hostHome_section1_leftSection_text">Hosting<br />makes Airbnb,<br />Airbnb</Typography>
-                            <Button variant="contained" size="large" id="hostHome_section1_leftSection_button">Try hosting</Button>
+                            <Button onClick={()=>{navigate("/becomeHost")}} variant="contained" size="large" id="hostHome_section1_leftSection_button">Try hosting</Button>
                         </div>
                         <div className="hostHome_section1_leftSection_arrow_container">
                             <IconButton onClick={handleDownArrow} aria-label="down" id="hostHome_section1_leftSection_arrow"><KeyboardArrowDownRoundedIcon /></IconButton>
@@ -120,7 +131,7 @@ const HostHome = () => {
                     </div>
                     <div className="hostHome_section1_rightSection_container">
                         <div className="hostHome_section1_rightSection_content">
-                            <video ref={vidRef_1} autoPlay muted onEnded={()=>setIsPlaying_1(false)} className="hostHome_section1_video">
+                            <video ref={vidRef_1} autoPlay muted onEnded={()=>{setIsPlaying_1(false); setCounter(0)}} className="hostHome_section1_video">
                                 <source
                                     src="https://a0.muscache.com/v/a9/a7/a9a7873c-95de-5e37-8995-a5abb5b6b02f/a9a7873c95de5e378995a5abb5b6b02f_4000k_1.mp4?imformat=h265"
                                     type="video/mp4; codecs=hevc"
@@ -133,9 +144,9 @@ const HostHome = () => {
                             <div className="hostHome_section1_gradient"></div>
                             <div className="hostHome_section1_text_container">
                                 <div className="hostHome_section1_name_container">
-                                    <img src="https://a0.muscache.com/im/pictures/cac9415a-acfb-4c92-a6d0-770e948741b1.jpg?im_w=480" className="hostHome_section1_name" />
+                                    <img src={name[counter]} className="hostHome_section1_name" />
                                 </div>
-                                <Typography id="hostHome_section1_location">Host in Philadelphia</Typography>
+                                <Typography id="hostHome_section1_location">Host in <span>{location[counter]}</span></Typography>
                             </div>
                             <div className="hostHome_section1_inset_section"></div>
                             <div className="hostHome_section1_play_pause">
@@ -153,20 +164,20 @@ const HostHome = () => {
                             <div className="hostHome_section2_carousel">
                                 <div className="hostHome_section2_carouselItems">
                                     <div className="hostHome_section2_emptyItem"></div>
-                                    <CarouselItem className={current === 1 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/4f3047b2-58ea-4335-8430-dfc6f436634d.jpg?im_w=720" content="Hosting my studio changed my life and gifted me with memorable experiences and people." sign_img="https://a0.muscache.com/im/pictures/f2b0e082-6872-47a3-a9f6-d01a9c44a088.jpg?im_w=240" location="Milan" />
-                                    <CarouselItem className={current === 2 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/31fb3cb1-c2a1-4e14-a9e9-6f279991790b.jpg?im_w=720" content="Hosting my home allowed me to become an entrepreneur and laid down a path to financial freedom." sign_img="https://a0.muscache.com/im/pictures/b0123613-6e48-4108-af8b-bb2d347b4de8.jpg?im_w=240" location="Atlanta" />
-                                    <CarouselItem className={current === 3 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/a464d642-695e-4d2c-aa51-2302de067f45.jpg?im_w=720" content="We’re able to keep our culture alive by hosting our pasta-making experience." sign_img="https://a0.muscache.com/im/pictures/4314911d-559f-4fc7-a493-2edce264d839.jpg?im_w=240" location="Palombara Sabina" />
-                                    <CarouselItem className={current === 4 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/d8627b07-b42c-40a1-807f-1eac9de39311.jpg?im_w=720" content="Airbnb has allowed me to create my own job doing what I love – taking care of guests in our home." sign_img="https://a0.muscache.com/im/pictures/80b16be2-f6bf-4a68-846f-b35d4b85c455.jpg?im_w=240" location="Chiang Mai" />
-                                    <CarouselItem className={current === 5 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/b56f3d7c-5006-4ed2-967a-c421e3275b1f.jpg?im_w=720" content="Hosting my Bedouin tent has introduced me to people around the world." sign_img="https://a0.muscache.com/im/pictures/82a3e33e-a83e-49e8-b642-0de04018075b.jpg?im_w=240" location="Wadi Rum" />
-                                    <CarouselItem className={current === 6 ? 'slide active' : 'slide'} host_img="https://a0.muscache.com/im/pictures/334530d8-2ad6-40e8-8fd2-4ac0835e693a.jpg?im_w=720" content="I love hosting my eco-home so people can connect with nature and their loved ones." sign_img="https://a0.muscache.com/im/pictures/62dccc5f-5fa6-4e24-8406-8ced33d1c403.jpg?im_w=240" location="Paraty" />
+                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/4f3047b2-58ea-4335-8430-dfc6f436634d.jpg?im_w=720" content="Hosting my studio changed my life and gifted me with memorable experiences and people." sign_img="https://a0.muscache.com/im/pictures/f2b0e082-6872-47a3-a9f6-d01a9c44a088.jpg?im_w=240" location="Milan" />
+                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/31fb3cb1-c2a1-4e14-a9e9-6f279991790b.jpg?im_w=720" content="Hosting my home allowed me to become an entrepreneur and laid down a path to financial freedom." sign_img="https://a0.muscache.com/im/pictures/b0123613-6e48-4108-af8b-bb2d347b4de8.jpg?im_w=240" location="Atlanta" />
+                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/a464d642-695e-4d2c-aa51-2302de067f45.jpg?im_w=720" content="We’re able to keep our culture alive by hosting our pasta-making experience." sign_img="https://a0.muscache.com/im/pictures/4314911d-559f-4fc7-a493-2edce264d839.jpg?im_w=240" location="Palombara Sabina" />
+                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/d8627b07-b42c-40a1-807f-1eac9de39311.jpg?im_w=720" content="Airbnb has allowed me to create my own job doing what I love – taking care of guests in our home." sign_img="https://a0.muscache.com/im/pictures/80b16be2-f6bf-4a68-846f-b35d4b85c455.jpg?im_w=240" location="Chiang Mai" />
+                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/b56f3d7c-5006-4ed2-967a-c421e3275b1f.jpg?im_w=720" content="Hosting my Bedouin tent has introduced me to people around the world." sign_img="https://a0.muscache.com/im/pictures/82a3e33e-a83e-49e8-b642-0de04018075b.jpg?im_w=240" location="Wadi Rum" />
+                                    <CarouselItem host_img="https://a0.muscache.com/im/pictures/334530d8-2ad6-40e8-8fd2-4ac0835e693a.jpg?im_w=720" content="I love hosting my eco-home so people can connect with nature and their loved ones." sign_img="https://a0.muscache.com/im/pictures/62dccc5f-5fa6-4e24-8406-8ced33d1c403.jpg?im_w=240" location="Paraty" />
                                     <div className="hostHome_section2_emptyItem"></div>
                                 </div>
                                 <div className="hostHome_section2_controls">
                                     <span className="hostHome_section2_back">
-                                        <IconButton onClick={prevSlide} id="hostHome_section2_back_button"><ArrowForwardIosIcon fontSize="small" /></IconButton>
+                                        <IconButton id="hostHome_section2_back_button"><ArrowForwardIosIcon fontSize="small" /></IconButton>
                                     </span>
                                     <span className="hostHome_section2_forward">
-                                        <IconButton onClick={nextSlide} id="hostHome_section2_forward_button"><ArrowForwardIosIcon fontSize="small" /></IconButton>
+                                        <IconButton id="hostHome_section2_forward_button"><ArrowForwardIosIcon fontSize="small" /></IconButton>
                                     </span>
                                 </div>
                             </div>
@@ -180,16 +191,16 @@ const HostHome = () => {
                             <div className="hostHome_section3_text">
                                 Host your <span className="hostHome_section3_dropdown">
                                     <div onClick={handlePlace} className="hostHome_section3_dropdown_text">
-                                        <span className="hostHome_section3_place"> entire place </span>
-                                        {isPlaceOpen ? <svg className="hostHome_section3_arrowDown" width="14px" height="8px" viewBox="0 0 14px 8px" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg>
-                                        : <svg className="hostHome_section3_arrowUp" width="14px" height="8px" viewBox="0 0 14px 8px" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg> }                              
+                                        <span className="hostHome_section3_place"> {place} </span>
+                                        {isPlaceOpen ? <svg className="hostHome_section3_arrowDown" width="14px" height="8px" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg>
+                                        : <svg className="hostHome_section3_arrowUp" width="14px" height="8px" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg> }                              
                                     </div>
                                     {isPlaceOpen ? 
                                         <div>
                                             <ul tabIndex={-1} role="listbox" className="hostHome_section3_list">
                                                 {DropdownContent.Place.map((item,index)=>{
                                                     return(
-                                                        <li key={index} className="hostHome_section3_listItem">
+                                                        <li key={index} className="hostHome_section3_listItem" onClick={()=>handleSelect(item,"place")}>
                                                             <Typography id="hostHome_section3_option">{item}</Typography>
                                                         </li>
                                                     )
@@ -200,16 +211,16 @@ const HostHome = () => {
                                 </span>
                                 for <span className="hostHome_section3_dropdown">
                                     <div onClick={handleGuest} className="hostHome_section3_dropdown_text">
-                                        <span className="hostHome_section3_guest"> 4 guests </span>
-                                        {isGuestOpen ? <svg className="hostHome_section3_arrowDown" width="14px" height="8px" viewBox="0 0 14px 8px" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg>
-                                        : <svg className="hostHome_section3_arrowUp" width="14px" height="8px" viewBox="0 0 14px 8px" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg> }                              
+                                        <span className="hostHome_section3_guest"> {guests} </span>
+                                        {isGuestOpen ? <svg className="hostHome_section3_arrowDown" width="14px" height="8px" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg>
+                                        : <svg className="hostHome_section3_arrowUp" width="14px" height="8px" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg> }                              
                                     </div>
                                     {isGuestOpen ? 
                                         <div>
                                             <ul tabIndex={-1} role="listbox" className="hostHome_section3_list">
                                                 {DropdownContent.Guest.map((item,index)=>{
                                                     return(
-                                                        <li key={index} className="hostHome_section3_listItem">
+                                                        <li key={index} className="hostHome_section3_listItem" onClick={()=>handleSelect(item,"guest")}>
                                                             <Typography id="hostHome_section3_option">{item}</Typography>
                                                         </li>
                                                     )
@@ -221,16 +232,16 @@ const HostHome = () => {
                                 <br />
                                 in <span className="hostHome_section3_dropdown">
                                     <div onClick={handleDelhi} className="hostHome_section3_dropdown_text">
-                                        <span className="hostHome_section3_delhi"> Delhi </span>
-                                        {isDelhiOpen ? <svg className="hostHome_section3_arrowDown" width="14px" height="8px" viewBox="0 0 14px 8px" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg>
-                                        : <svg className="hostHome_section3_arrowUp" width="14px" height="8px" viewBox="0 0 14px 8px" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg> }                              
+                                        <span className="hostHome_section3_delhi"> {delhi} </span>
+                                        {isDelhiOpen ? <svg className="hostHome_section3_arrowDown" width="14px" height="8px" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg>
+                                        : <svg className="hostHome_section3_arrowUp" width="14px" height="8px" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1.00008L7.35355 6.64652C7.15829 6.84178 6.84171 6.84178 6.64645 6.64652L1 1.00008" stroke="#222" strokeWidth="2"></path></svg> }                              
                                     </div>
                                     {isDelhiOpen ? 
                                         <div>
                                             <ul tabIndex={-1} role="listbox" className="hostHome_section3_list">
                                                 {DropdownContent.Delhi.map((item,index)=>{
                                                     return(
-                                                        <li key={index} className="hostHome_section3_listItem">
+                                                        <li key={index} className="hostHome_section3_listItem" onClick={()=>handleSelect(item,"delhi")}>
                                                             <Typography id="hostHome_section3_option">{item}</Typography>
                                                         </li>
                                                     )
@@ -253,13 +264,13 @@ const HostHome = () => {
                 <div>
                     <div className="hostHome_section4_container1">
                         <div className="hostHome_section4_container2">
-                            <div item className="hostHome_section4_image_container">
+                            <div className="hostHome_section4_image_container">
                                 <img className="hostHome_section4_image" src="https://a0.muscache.com/im/pictures/93ef1829-62d1-4349-8b4a-b02ebc650a25.jpg?im_w=2560&im_q=highq"></img>
                             </div>
                         </div>
                         <div className="hostHome_section4_content">
                             Questions about hosting?<br></br>Ask a Superhost.
-                            <Button variant="contained" id="hostHome_section4_button">Learn more</Button>
+                            <Button onClick={()=>{navigate("/askasuperhost")}} variant="contained" id="hostHome_section4_button">Learn more</Button>
                         </div>
                     </div>
                 </div>
@@ -277,7 +288,6 @@ const HostHome = () => {
                         <div className="hostHome_section5_image_container1">
                             <div className="hostHome_section5_image_container2">
                                 <img decoding="async" loading="lazy" src="https://a0.muscache.com/im/pictures/11e10d64-867e-4dba-b0b4-896026a4f0e0.jpg?im_w=2560&im_q=highq" className="hostHome_section5_image"></img>
-                                {/* <div className="hostHome_section5_"{{background: `url(https://a0.muscache.com/im/pictures/11e10d64-867e-4dba-b0b4-896026a4f0e0.jpg?im_w=2560&im_q=highq)`}}></div> */}
                             </div>
                         </div>
                     </div>

@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../../component/header";
 import Footer from "../../component/footer";
 import "./home.css";
 import {Grid, Typography, Button} from "@mui/material";
 import PictureCard from "../../component/pictureCard"
 import {useNavigate} from "react-router-dom"
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 
 function Home() {
-
     const navigate = useNavigate();
+
+    useEffect(()=>{
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
+            // ...
+        } else {
+            // User is signed out
+            // ...
+            navigate("/");
+        }
+        });
+    },[])
 
     return(
         <>
@@ -45,7 +62,7 @@ function Home() {
                                                                 </div>
                                                             </h2>
                                                             <div className="home_section1_buttonStyle">
-                                                                <button variant="contained" className="home_section1_button">I'm flexible</button>
+                                                                <button onClick={()=>{navigate("/im-flexible")}} variant="contained" className="home_section1_button">I'm flexible</button>
                                                             </div>
                                                         </div>
                                                     </div>

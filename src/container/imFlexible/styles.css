@@ -219,12 +219,6 @@
   align-items: center;
   display: flex;
 }
-.flexible_navbar_tab_item_container {
-  position: relative;
-}
-/* .flexible_navbar_tab_item:checked{
-  border-bottom: 3px solid rgb(34, 34, 34);
-} */
 .flexible_navbar_tab_item {
   position: relative;
   cursor: pointer;
@@ -237,7 +231,6 @@
   font-weight: 500;
   border-radius: 8px;
   background: transparent;
-  color: rgb(113, 113, 113);
   padding: 10px;
   transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
     -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
@@ -247,7 +240,7 @@
 }
 .flexible_navbar_tab_item_content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 .flexible_navbar_tab_item_iconContainer {
@@ -617,7 +610,7 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   font-weight: 600;
-  -webkit-line-clamp: 1px;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 .flexible_price_container1 {
@@ -655,7 +648,7 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   color: #717171;
-  -webkit-line-clamp: 1px;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 .flexible_card_date {

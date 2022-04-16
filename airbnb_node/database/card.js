@@ -6,12 +6,12 @@ class Card {
         return db.collection("card").insertOne(card)
     }
 
-    getAllUsers(){
+    getAllCards(){
         const db = getDb()
         return db.collection("card").find({}).toArray();
     }
 
-    getUser(){
+    getCard(){
 
     }
 

@@ -4,7 +4,9 @@ var bodyParser = require("body-parser");
 var bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 const mongoConnect = require("./database/db").mongoConnect;
-const UserSchema = require("./model/user.model")
+const UserSchema = require("./model/user.model");
+const CardSchema = require("./model/card.schema");
+const Card = require("./database/card");
 
 
 app.use(bodyParser.json())
@@ -31,6 +33,7 @@ app.use(function (req, res, next) {
 app.get("/", (req,res) => {
     res.send(`<h1>NODE Js.</h1>`)
 })
+
 
 //AUTHENTICATION ROUTES
 
@@ -136,6 +139,120 @@ app.post("/auth/forgotPassword", async (req,res)=>{
                 }
             })
         }
+    }
+})
+
+
+//CARD ROUTES
+
+app.get("/flexible/cards", async (req,res)=>{
+    // const CardInstance = new Card();
+    // CardInstance.getAllCards()
+    //     .then((cardsFromDatabase)=>{
+    //         res.json(cardsFromDatabase)
+    //     }).catch((err)=>{
+    //         res.json({message: err})
+    //     })
+    try{
+        const cardsFromDatabase = await CardSchema.find();
+        res.json(cardsFromDatabase)
+    }catch(err){
+        res.json({message: err})
+    }
+})
+
+app.get("/flexible/cards/:location", async (req,res) => {
+    let cardLocation = req.params.location;
+    console.log(cardLocation);
+    const filteredCard = await CardSchema.find({location: cardLocation})
+
+    if(filteredCard.length>0){
+        res.json(filteredCard[0]);
+    }else{
+        res.json({
+            message: `Cannot find card with location ${cardLocation} !!`,
+            code: 200,
+        })
+    }
+})
+
+app.post("/flexible/cards", (req,res)=>{
+    if(true){
+        let card = new CardSchema(req.body);
+        card.save(function(err){
+            if(err){
+                console.log(err);
+                res.json({
+                    message: err,
+                    code: 400,
+                })
+            }else{
+                res.json({
+                    message: "Card information added",
+                    code: 200,
+                }) 
+            }
+        })
+    } else {
+        res.json({
+            message: "User is not authorized to insert data",
+            code: 401,
+        })
+    }
+})
+
+app.put("/flexible/cards", async (req,res)=>{
+    const cardOldLocation = "manali"
+    const cardNewLocation = "Jari, Himachal Pradesh"
+    const category = "farms"
+    const filteredCard = await CardSchema.find({location: cardOldLocation, category: category})
+
+    if(filteredCard.length===0){
+        res.json({
+            status: 400,
+            message: "Card doesn't exist!"
+        })
+    } else {
+        CardSchema.updateOne({location: filteredCard[0].location}, {$set: {location: cardNewLocation}}, function(err, result){
+            if(err){
+                console.log(err);
+                res.json({
+                    message: err,
+                    code: 400,
+                })
+            } else {
+                res.json({
+                    status: 200,
+                    message: `Card location changed to ${cardNewLocation} from ${cardOldLocation}`,
+                })
+            }
+        })
+    }
+})
+
+app.delete("/flexible/cards/:location", async (req,res)=>{
+    const filteredCard = await CardSchema.find({ location: req.params.location });
+
+    if(filteredCard.length===0){
+        res.json({
+            status: 400,
+            message: "Card doesn't exist!"
+        })
+    } else {
+        CardSchema.findOneAndRemove({ location: req.params.location }, function(err,result){
+            if(err){
+                console.log(err);
+                res.json({
+                    message: err,
+                    code: 400,
+                })
+            } else {
+                res.json({
+                    status: 200,
+                    message: `Card with location ${req.params.location} deleted`,
+                })
+            }
+        })
     }
 })
 
