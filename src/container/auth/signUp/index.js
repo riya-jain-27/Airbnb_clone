@@ -4,6 +4,7 @@ import { Lock, AccountCircle } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles.css";
+import BASEURL from "../../../constants"
 
 const SignUpScreen = (props) => {
     const [username, setUsername] = useState("");
@@ -25,7 +26,7 @@ const SignUpScreen = (props) => {
 
     const handleLogin = () => {
         // alert(password+username);
-        axios.post("http://localhost:8005/auth/signUp", {
+        axios.post(`${BASEURL}/auth/signUp`, {
             username,
             password,
             confirmPassword,

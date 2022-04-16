@@ -12,6 +12,8 @@ import { AccountCircle, Lock } from "@mui/icons-material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import axios from "axios";
 import "../styles.css";
+import BASEURL from "../../../constants"
+
 
 
 const ForgotPassword = () => {
@@ -32,7 +34,7 @@ const ForgotPassword = () => {
   };
 
   const handleSubmit = () =>{
-    axios.post("http://localhost:8005/auth/forgotPassword", {
+    axios.post(`${BASEURL}/auth/forgotPassword`, {
         username,
         password,
         confirmPassword,

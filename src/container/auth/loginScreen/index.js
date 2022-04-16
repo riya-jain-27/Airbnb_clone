@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import fire from "../../../fire"
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import BASEURL from "../../../constants"
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
@@ -23,7 +24,7 @@ const Login = (props) => {
   const handleLogin = () => {
     // alert(password+username)
     axios
-    .post("http://localhost:8005/auth/login", {
+    .post(`${BASEURL}/auth/login`, {
       username,
       password,
     })

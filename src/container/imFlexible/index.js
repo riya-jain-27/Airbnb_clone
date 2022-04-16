@@ -8,6 +8,7 @@ import {useSelector, useDispatch} from "react-redux";
 import axios from "axios";
 import * as actionTypes from "../../redux/actiontypes";
 import { color } from "@mui/system";
+import BASEURL from "../../constants"
 
 const Flexible = () => {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ const Flexible = () => {
 
   const getCardData = async () => {
     try{
-      const response = await axios.get("http://localhost:8005/flexible/cards")
+      const response = await axios.get(`${BASEURL}/flexible/cards`)
       dispatch({type: actionTypes.STORE_CARDS, payload: response.data})
     }catch(err){
       console.log(err);
