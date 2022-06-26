@@ -6,7 +6,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import fire from "../../../fire"
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import BASEURL from "../../../constants"
+import BASEURL from "../../../constants";
+import { useSelector, useDispatch } from "react-redux";
+import { useSelect } from "@mui/base";
+import * as actiontypes from "../../../redux/actiontypes";
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
@@ -21,6 +24,14 @@ const Login = (props) => {
     setPassword(event.target.value);
   };
 
+  const store = useSelector((store) => store);
+  const dispatch = useDispatch();
+
+  const LoggedIn = () => {
+    dispatch({type: actiontypes.LOGGED_IN});
+    // console.log(store.isUserLoggedIn);
+  }
+
   const handleLogin = () => {
     // alert(password+username)
     axios
@@ -29,7 +40,10 @@ const Login = (props) => {
       password,
     })
     .then(function (response) {
-      if (response.data.message === "Login success") navigate("/home");
+      if (response.data.message === "Login success"){
+        LoggedIn();
+        navigate("/home");
+      }
       else alert(response.data.message);
     })
     .catch(function (error) {
@@ -48,6 +62,7 @@ const Login = (props) => {
     // The signed-in user info.
     const user = result.user;
     // ...
+    LoggedIn();
     navigate("/home")
   }).catch((error) => {
     // Handle Errors here.

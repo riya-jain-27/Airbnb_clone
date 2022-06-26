@@ -4,14 +4,26 @@ import "./header.css";
 import { useNavigate } from "react-router-dom";
 import fire from '../../fire';
 import { getAuth, signOut } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import * as actiontypes from "../../redux/actiontypes";
 
 const Header = () => {
   const navigate = useNavigate();
   const [isProfileOpen, setProfileOpen] = useState(false);
 
+  const state = useSelector((store) => store.isUserLoggedIn);
+  const dispatch = useDispatch();
+
+  const LoggedOut = () => {
+    dispatch({type: actiontypes.LOGGED_OUT})
+  }
+
   const handleLogOut = () => {
+    console.log("called")
     const auth = getAuth();
     signOut(auth).then(() => {
+      console.log("called2");
+      LoggedOut();
       navigate("/");
     }).catch((error) => {
       alert("failed");

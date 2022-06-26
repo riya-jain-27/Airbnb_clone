@@ -5,41 +5,23 @@ import './index.css';
 import {BrowserRouter, Route, Routes } from "react-router-dom";
 import {createStore, applyMiddleware} from "redux";
 import thunk from 'redux-thunk';
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import AppReducer from "./redux/reducer";
 import ScrollToTop from "./component/ScrollToTop";
 
-import Home from './container/home';
-import HostHome from './container/hostHome';
-import AskASuperhost from './container/askASuperhost';
-import AirCover from './container/aircover';
-import BecomeAHost from './container/becomeAHost';
-import HelpCentre from './container/helpCentre';
-import LogIn from './container/auth/loginScreen'
-import SignUp from './container/auth/signUp'
-import ForgotPassword from './container/auth/forgotPassword'
-import ImFlexible from './container/imFlexible'
+import Paths from "./component/routing"
 
 const store = createStore(AppReducer, applyMiddleware(thunk));
 
 function App() {
+  // const state = useSelector((store)=> store);
+  // console.log(state);
   return(
     <Provider store={store}>
       <BrowserRouter>
         <ScrollToTop />
         <div>
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/hostYourHome" element={<HostHome />} />
-            <Route path="/askasuperhost" element={<AskASuperhost />} />
-            <Route path="/aircover" element={<AirCover />} />
-            <Route path="/becomeHost" element={<BecomeAHost />} />
-            <Route path="/help" element={<HelpCentre />} />
-            <Route path="/" element={<LogIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/forgotPassword" element={<ForgotPassword />} />
-            <Route path="/im-flexible" element={<ImFlexible />} />
-          </Routes>
+          <Paths />            
         </div>
       </BrowserRouter>
     </Provider>
