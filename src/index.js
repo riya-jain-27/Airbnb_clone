@@ -7,6 +7,7 @@ import {createStore, applyMiddleware} from "redux";
 import thunk from 'redux-thunk';
 import { Provider } from "react-redux";
 import AppReducer from "./redux/reducer";
+import ScrollToTop from "./component/ScrollToTop";
 
 import Home from './container/home';
 import HostHome from './container/hostHome';
@@ -25,6 +26,7 @@ function App() {
   return(
     <Provider store={store}>
       <BrowserRouter>
+        <ScrollToTop />
         <div>
           <Routes>
             <Route path="/home" element={<Home />} />

@@ -17,7 +17,7 @@ const AskASuperhost = () =>{
     const navigate = useNavigate();
 
     const handleLogo = () => {
-        navigate("/");
+        navigate("/home");
     }
 
     const handlePause = () => {
@@ -66,7 +66,7 @@ const AskASuperhost = () =>{
                     </div>
                 </div>
                 <div className="superhost_header_button_container">
-                    <Button variant="contained" id="superhost_header_button">Become a host</Button>
+                    <Button variant="contained" onClick={()=>navigate("/becomeHost")} id="superhost_header_button">Become a host</Button>
                 </div>
             </div>
 
@@ -80,7 +80,7 @@ const AskASuperhost = () =>{
                                 <span className="superhost_section1_text">Questions about hosting?</span>
                             </h1>
                             <div className="superhost_section1_button_container">
-                                <Button onClick={()=>navigate("/becomeHost")} variant="contained" id="superhost_section1_button">Ask a Superhost</Button>
+                                <Button variant="contained" id="superhost_section1_button">Ask a Superhost</Button>
                             </div>
                         </div>
                     </div>
