@@ -207,7 +207,7 @@ const AskASuperhost = () =>{
                                                         <span className="superhost_section4_name">Imaan</span>
                                                         <span className="superhost_section4_time">6:05pm</span>
                                                     </div>
-                                                    <span className="superhost_section4_ans">My guests have always been very respectful, but there’s <a target="_blank" href="/aircover" style={{color: "black", borderRadius: 4,}}>AirCover</a> if accidents happen.</span>
+                                                    <span className="superhost_section4_ans">My guests have always been very respectful, but there’s <a onClick={()=>navigate("/aircover")} style={{color: "black", borderRadius: 4,}}>AirCover</a> if accidents happen.</span>
                                                 </div>
                                             </div>
                                         </div>

@@ -235,7 +235,7 @@ const AirCover = () => {
                         <div className="aircover_section5_content">
                             <div className="aircover_section5_top">
                                 <h2 className="aircover_section5_heading">Your questions, answered</h2>
-                                <div className="aircover_section5_text">Can’t find what you’re looking for? <br />Visit our <a href="/help" className="aircover_section5_help">Help Centre</a></div>
+                                <div className="aircover_section5_text">Can’t find what you’re looking for? <br />Visit our <a onClick={()=>navigate("/help")} className="aircover_section5_help">Help Centre</a></div>
                             </div>
                             <div className="aircover_section5_tabs">
                                 <div>

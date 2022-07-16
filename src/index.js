@@ -14,8 +14,6 @@ import Paths from "./component/routing"
 const store = createStore(AppReducer, applyMiddleware(thunk));
 
 function App() {
-  // const state = useSelector((store)=> store);
-  // console.log(state);
   return(
     <Provider store={store}>
       <BrowserRouter>

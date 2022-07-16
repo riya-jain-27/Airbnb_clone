@@ -25,15 +25,14 @@ const Login = (props) => {
   };
 
   const store = useSelector((store) => store);
+  // console.log(store.isUserLoggedIn)
   const dispatch = useDispatch();
 
   const LoggedIn = () => {
     dispatch({type: actiontypes.LOGGED_IN});
-    // console.log(store.isUserLoggedIn);
   }
 
   const handleLogin = () => {
-    // alert(password+username)
     axios
     .post(`${BASEURL}/auth/login`, {
       username,

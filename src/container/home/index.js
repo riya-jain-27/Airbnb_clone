@@ -5,7 +5,6 @@ import "./home.css";
 import {Grid, Typography, Button} from "@mui/material";
 import PictureCard from "../../component/pictureCard"
 import {useNavigate} from "react-router-dom"
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useSelector } from "react-redux";
 
 
@@ -14,22 +13,6 @@ function Home() {
 
     const state = useSelector((store) => store.isUserLoggedIn);
     console.log(state);
-
-    // useEffect(()=>{
-    //     const auth = getAuth();
-    //     onAuthStateChanged(auth, (user) => {
-    //     if (user) {
-    //         // User is signed in, see docs for a list of available properties
-    //         // https://firebase.google.com/docs/reference/js/firebase.User
-    //         const uid = user.uid;
-    //         // ...
-    //     } else {
-    //         // User is signed out
-    //         // ...
-    //         // navigate("/");
-    //     }
-    //     });
-    // },[])
 
     return(
         <>

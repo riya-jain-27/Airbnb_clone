@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import Home from '../container/home';
 import HostHome from '../container/hostHome';
@@ -27,12 +27,14 @@ const Routing = () => {
                     <Route path="/becomeHost" element={<BecomeAHost />} />
                     <Route path="/help" element={<HelpCentre />} />
                     <Route path="/im-flexible" element={<ImFlexible />} />
+                    <Route path="*" element={<Navigate replace to="/home" />} />              
                 </Routes>
             ) : (
-                <Routes>
+                <Routes>    
                     <Route path="/" element={<LogIn />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/forgotPassword" element={<ForgotPassword />} />
+                    <Route path="*" element={<Navigate replace to="/" />} />              
                 </Routes>
             )}
         </>
